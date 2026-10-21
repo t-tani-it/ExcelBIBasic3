@@ -1,7 +1,8 @@
 # ExcelBIBasic3 - プロジェクト永続ルール（AGENTS.md）
 
 ## 概要
-- 本プロジェクトは、ExcelBIBasic2 の試作（SUMIFS 版）を土台に、見積・原価・利益シミュレーターを Power Query／データモデル／ピボットテーブル／ピボットグラフ／スライサー／タイムライン構成へ再設計するものである。
+- 本プロジェクトは、ExcelBIBasic2 の試作（SUMIFS 版）を土台に、見積・原価・利益シミュレーターを再設計するものである。
+- v0.4 の売上分析は D-24 の方式 A（通常ピボット、共有キャッシュ、スライサー、タイムライン、ピボットグラフ）で実装する。当初の Power Query・データモデル方式は D-22 により中止する。
 - 判断と作業の基準は `docs/` 配下の仕様書とする。仕様変更は `docs/decision_log.md` への追記と `docs/progress.md` の更新を伴う。
 - 文書の原本は不変とし、改訂は複写による Rev 進行とする。
 
@@ -10,12 +11,13 @@
 - 生成物: 購入者向け `.xlsx`（マクロなし、外部リンクなし）
 - 仕様書: `docs/requirements.md`、`docs/design_spec.md`、`docs/calculation_spec.md`、`docs/test_spec.md`、`docs/implementation_plan.md`、`docs/compatibility_matrix.md`、`docs/decision_log.md`
 - 作業管理: `docs/progress.md`（タスクと状態）、`docs/handover.md`（フェーズ引き継ぎ）
-- 再ビルド工程: `build.mjs`、`enhance.mjs`、`finalize_ooxml.py`
-- 検証: `verify_excel_windows.py`、`verify_v02_windows.py`
+- v0.4 再ビルド工程: `build_v04_a.py`、`finalize_v03_ooxml.py`
+- v0.2 以前の再ビルド工程（履歴）: `build.mjs`、`enhance.mjs`、`finalize_ooxml.py`
+- 検証: `verify_v04_windows.py`、`verify_v03_windows.py`、`verify_v02_windows.py`、`verify_excel_windows.py`
 
 ## 開発環境
 - OS は Windows を前提とする。
-- Node.js で OOXML を直接生成し、Python で後処理と実機検証を行う。
+- v0.4 は Windows 版 Excel の COM（pywin32）で生成し、Python で OOXML 後処理と実機検証を行う。v0.2 以前の Node.js 工程は履歴として残す。
 - 仮想環境は venv を標準とする。他案件の conda env を流用しない。
 - venv はプロジェクト直下の `.venv` に統一する（`python -m venv .venv`）。
 - 実機検証には pywin32 が必要である。導入先は本プロジェクトの `.venv` とする。
@@ -31,10 +33,10 @@
 - 見積・原価・利益の計算セル（計算、採算シミュレーション、見積入力、原価(木工所)、原価(農家)）は計算仕様に従い維持する。
 
 ## 仕様上の確定事項
-- 売上分析は Power Query とデータモデルで作り直す。SUMIFS 版は新ブックへ引き継がない。
-- 商品マスタは別テーブル化する（追加を見越す）。
-- スライサー（業種・商品）とタイムライン（日付）を全ピボットテーブルと全ピボットグラフへ接続する。ゲージ用ピボットのみ独立とする。
-- 表示単位は万円（例 `84万円`）とする。実装は `ROUND(円/10000,0)` と書式 `0"万円"` である。
+- 売上分析は D-24 の方式 A で作り直す。Power Query、データモデル、DAX、リレーション、CUBE 関数は使用しない。SUMIFS 版は新ブックへ引き継がない。
+- 商品マスタは別テーブル化する（追加を見越す）。方式 A ではピボット・スライサーに未接続とする。
+- 業種・商品スライサーは全ピボットテーブルと全ピボットグラフへ接続する。日付タイムラインは PT-01 から PT-06 へ接続し、前年参照の PT-07 と PT-08 は非連動とする。ゲージ用ピボットのみ独立とする。
+- KPI は円、グラフとヒートマップは万円（例 `84万円`）で表示する。実装は `ROUND(円/10000,0)` と書式 `0"万円"` である。
 - 状態表示は採算シミュレーション D12 のみとする。見積入力 D12:F12 の状態表示は削除し、B12:F12 を備考入力へ復帰させる。
 - チェックボックスはフォームコントロールとする（セル内チェックボックスは Microsoft 365 限定のため不採用）。
 - ゲージはデータバーで実装する。評価期間は別入力とし、スライサー非連動である旨を画面へ明記する。
@@ -61,14 +63,12 @@
 
 ## ビルド・実行・検証
 - 作業ディレクトリは `ExcelBIBasic3` とする。
-- 再ビルドは次の順で行う。詳細な引数は `README.md` を参照する。
-  - `node build.mjs`
-  - `node enhance.mjs`
-  - `python finalize_ooxml.py`
-- 実機検証は次の順で行う。
-  - `python verify_excel_windows.py`
-  - `python verify_v02_windows.py`
-- 検証は `package_checks.json`、`engine_tests.json`、`notes_manifest.json`、`sales_fixture.json` の期待値と照合する。
+- v0.4 の再ビルドは次のコマンドで行う。詳細な引数は `README.md` を参照する。
+  - `.\.venv\Scripts\python.exe build_v04_a.py prototype_v03.xlsx prototype_v04.xlsx`
+- v0.4 の実機検証は次のコマンドで行う。
+  - `.\.venv\Scripts\python.exe verify_v04_windows.py prototype_v04.xlsx`
+- v0.2 以前の Node 工程は履歴であり、v0.4 の再生成には使用しない。
+- 検証は `package_checks.json`、`engine_tests.json`、`notes_manifest.json`、`sales_fixture.json` の期待値と照合する。v0.4 は `windows_v04_results.json` を正とする。
 - 実機検証が未実施の範囲は「実機保証なし」と明示する。
 
 ## README記載ルール
@@ -90,3 +90,4 @@
 
 ## 変更履歴
 - 2026-10-21: 初版作成（仕様策定フェーズの確定事項を反映）。
+- 2026-10-22: D-24 の方式 A、PT-07/08 のタイムライン非連動、v0.4 のビルド・検証コマンドを反映。
