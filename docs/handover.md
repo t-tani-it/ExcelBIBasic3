@@ -77,3 +77,47 @@
 | `engine_tests.json` | 既存 40 テストの内容 |
 | `sales_fixture.json` | 576 行の期待値 |
 | `test_report.md` | v0.2 の検証結果 |
+
+## 8. v0.3 実装フェーズ（2026-10-21）
+
+### 方針（計画）
+
+P1 から P4 を COM で実装し、P5 で見積入力の備考欄を復帰する計画であった。P1 は Power Query 3 本をデータモデルへ読み込み、リレーションと DAX メジャーを作成する工程である。
+
+### 実装（実行）
+
+P5 を `build_v03_p5.py` で実装した。あわせて `.venv` を作成し、pywin32 を導入した。
+
+P1 は次の方式を順に試したが、いずれもモデル接続の作成で停止した。
+
+1. `Workbook.Queries.Add` と `Connections.Add2(CreateModelConnection=True)`
+2. 一時マクロ（`.xlsm`）内での同操作
+3. `Application.OnTime` によるアイドル実行
+4. 可視インスタンスでの実行
+
+クエリ定義と接続定義（`CreateModelConnection=False`）は成功する。`#table` リテラルのモデル接続も成功する。ワークシートテーブルを参照するクエリのみが停止する。ダイアログウィンドウは存在せず、Mashup エンジンの停止と判断した。
+
+### 結果
+
+| 項目 | 結果 |
+|---|---|
+| P5 | 完了。`verify_v03_windows.py` 30 / 30 合格 |
+| P1 から P4 | 未実装。D-22 に記録 |
+| 成果物 | `prototype_v03.xlsx`（P5 適用済み） |
+
+### 残タスク
+
+1. 対話セッションで Excel を起動し、Power Query を手動でデータモデルへ読み込めるか確認する。
+2. 読み込める場合、`build_v03_p1.py` 相当の工程を再作成し、P1 から P4 を実装する。
+3. `verify_excel_windows.py` の `CalculateFullRebuild` を対話セッションで実行する。
+4. 旧仕様の D12:F12 検査 3 件を `docs/test_spec.md` から除外し、v0.3 の検査へ置き換える。
+
+### 実行コマンド
+
+| 目的 | コマンド |
+|---|---|
+| P5 の適用 | `.\.venv\Scripts\python.exe build_v03_p5.py prototype.xlsx prototype_v03.xlsx` |
+| v0.3 差分検証 | `.\.venv\Scripts\python.exe verify_v03_windows.py prototype_v03.xlsx` |
+| v0.2 回帰検証 | `.\.venv\Scripts\python.exe verify_v02_windows.py prototype_v03.xlsx` |
+| 計算エンジン検証 | `.\.venv\Scripts\python.exe verify_excel_windows.py prototype_v03.xlsx` |
+

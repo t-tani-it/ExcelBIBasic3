@@ -1,8 +1,26 @@
-# 見積・原価・利益シミュレーター v0.2
+# 見積・原価・利益シミュレーター v0.3（部分実装）
 
 操作評価用プロトタイプ。販売可能判定は未実施です。
 
-## 今回の変更
+## v0.3 の実装状況
+
+| 項目 | 状態 | 内容 |
+|---|---|---|
+| P5 見積入力の備考復帰 | 実装済み | B12:F12 を備考入力へ復帰。D12:F12 の状態表示と条件付き書式 3 件を削除 |
+| 状態表示 | 実装済み | 採算シミュレーション D12 の業務状態のみ |
+| v0.3 実機検証 | 合格 | `verify_v03_windows.py` 30 件すべて合格 |
+| 成果物の後処理 | 実装済み | 絶対パス（x15ac:absPath）と作成者情報を除去 |
+| P1 Power Query・データモデル | 未実装 | ビルド環境で Mashup エンジンが応答せず、モデル接続の作成が完了しない |
+| P2 ピボット・スライサー・タイムライン | 未実装 | P1 の成立が前提 |
+| P3 KPI・ヒートマップ・スパークライン | 未実装 | P1 の成立が前提 |
+| P4 ゲージ・チェックボックス | 未実装 | P1 の成立が前提 |
+
+P1 の停止理由と実測記録は `docs/decision_log.md` の D-22、再開手順は `docs/handover.md` を参照してください。
+売上分析シートは v0.2 の SUMIFS 版をそのまま維持しています。データモデル版への置換は未実施です。
+
+変更点の詳細は `docs/progress.md`、検証は `windows_v03_results.json` を参照してください。
+
+## v0.2 の変更（履歴）
 
 - 深緑・ティール・淡緑を基調に全体配色を変更。
 - 「売上分析」「売上データ」を追加。2025〜2026年、8商品、各月各商品3件、計576件の架空履歴。
@@ -69,3 +87,29 @@
 4. Windows版Excelでverify_excel_windows.pyおよびverify_v02_windows.py実行。
 
 スクリプトのPython利用は開発・検証用です。購入者にインストールは不要です。最終OOXML処理は、INDIRECT復元、印刷設定、全セルロック解除、メモを非表示化、既存スライダーとメモのVML統合を行います。
+
+## セットアップ（開発者向け）
+
+仮想環境はプロジェクト直下の `.venv` とする。対象シェルを明記する。
+
+| 目的 | PowerShell | コマンドプロンプト（cmd） |
+|---|---|---|
+| 仮想環境の作成 | `python -m venv .venv` | `python -m venv .venv` |
+| 仮想環境の有効化 | `.\.venv\Scripts\Activate.ps1` | `.\.venv\Scripts\activate.bat` |
+| pywin32 の導入 | `python -m pip install pywin32` | `python -m pip install pywin32` |
+| 有効化の確認 | `python -c "import win32com.client; print('OK')"` | `python -c "import win32com.client; print('OK')"` |
+
+PowerShell で実行ポリシーにより有効化できない場合は、`Set-ExecutionPolicy -Scope Process Bypass` を実行してから有効化する。
+
+## v0.3 のビルドと検証
+
+| 目的 | コマンド |
+|---|---|
+| P5 の適用（v0.2 から v0.3） | `.\.venv\Scripts\python.exe build_v03_p5.py prototype.xlsx prototype_v03.xlsx` |
+| OOXML 後処理（単体実行） | `.\.venv\Scripts\python.exe finalize_v03_ooxml.py prototype_v03.xlsx` |
+| v0.3 差分検証 | `.\.venv\Scripts\python.exe verify_v03_windows.py prototype_v03.xlsx` |
+| v0.2 回帰検証 | `.\.venv\Scripts\python.exe verify_v02_windows.py prototype_v03.xlsx` |
+| 計算エンジン検証 | `.\.venv\Scripts\python.exe verify_excel_windows.py prototype_v03.xlsx` |
+
+v0.3 差分検証は 30 件すべて合格する。v0.2 回帰検証は 103 件中 100 件合格であり、不合格 3 件は D12:F12 の状態表示を前提とした旧仕様の検査である。計算エンジン検証は `CalculateFullRebuild` を使用するため、画面ロック中は完了しない。対話セッションで実行する。
+

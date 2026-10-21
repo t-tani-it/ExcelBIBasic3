@@ -16,3 +16,7 @@ node_modules/
 .artifacts/
 out/
 dist/
+
+# 実機検証の生成物
+windows_*_results.json
+*_verify.txt
