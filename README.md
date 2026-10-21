@@ -111,5 +111,5 @@ PowerShell で実行ポリシーにより有効化できない場合は、`Set-E
 | v0.2 回帰検証 | `.\.venv\Scripts\python.exe verify_v02_windows.py prototype_v03.xlsx` |
 | 計算エンジン検証 | `.\.venv\Scripts\python.exe verify_excel_windows.py prototype_v03.xlsx` |
 
-v0.3 差分検証は 30 件すべて合格する。v0.2 回帰検証は 103 件中 100 件合格であり、不合格 3 件は D12:F12 の状態表示を前提とした旧仕様の検査である。計算エンジン検証は `CalculateFullRebuild` を使用するため、画面ロック中は完了しない。対話セッションで実行する。
+v0.3 差分検証は 30 件すべて合格する。v0.2 回帰検証は 103 件中 100 件合格であり、不合格 3 件は D12:F12 の状態表示を前提とした旧仕様の検査である。計算エンジン検証は 13 件すべて合格する。
 

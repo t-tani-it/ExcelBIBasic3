@@ -102,15 +102,15 @@ P1 は次の方式を順に試したが、いずれもモデル接続の作成�
 | 項目 | 結果 |
 |---|---|
 | P5 | 完了。`verify_v03_windows.py` 30 / 30 合格 |
+| 計算エンジン | `verify_excel_windows.py` 13 / 13 合格 |
 | P1 から P4 | 未実装。D-22 に記録 |
-| 成果物 | `prototype_v03.xlsx`（P5 適用済み） |
+| 成果物 | `prototype_v03.xlsx`（P5 適用済み、absPath と作成者情報を除去） |
 
 ### 残タスク
 
 1. 対話セッションで Excel を起動し、Power Query を手動でデータモデルへ読み込めるか確認する。
-2. 読み込める場合、`build_v03_p1.py` 相当の工程を再作成し、P1 から P4 を実装する。
-3. `verify_excel_windows.py` の `CalculateFullRebuild` を対話セッションで実行する。
-4. 旧仕様の D12:F12 検査 3 件を `docs/test_spec.md` から除外し、v0.3 の検査へ置き換える。
+2. 読み込める場合、P1 の工程を再作成し、P1 から P4 を実装する。
+3. 旧仕様の D12:F12 検査 3 件を `verify_v02_windows.py` から除外し、v0.3 の検査へ置き換える。
 
 ### 実行コマンド
 

@@ -91,7 +91,7 @@
 |---|---|---|
 | `verify_v03_windows.py` | 30 / 30 合格 | 備考復帰、状態表示撤去、メモ 74、INDIRECT 24、KPI 3 値、保護・固定枠なし、VBA なし、外部リンクなし、absPath と作成者情報の除去 |
 | `verify_v02_windows.py` | 100 / 103 合格 | 不合格 3 件は D12:F12 の状態表示を前提とした旧仕様の検査 |
-| `verify_excel_windows.py` | 未完了 | `CalculateFullRebuild` が画面ロック中のセッションで完了しない。対話セッションでの再実行が必要 |
+| `verify_excel_windows.py` | 13 / 13 合格 | 一時コピーに対する破壊試験。非対話セッションでは `CalculationState` が 0 に戻らないため、待機処理を削除 |
 
 ### 成果物
 

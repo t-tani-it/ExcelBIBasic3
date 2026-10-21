@@ -182,5 +182,5 @@ P5 のみ実装した。P1 から P4 は D-22 により未実装である。
 - 実施スクリプトは `verify_v03_windows.py` である。結果は `windows_v03_results.json` に保存する。
 - ビルドは `build_v03_p5.py` が `finalize_v03_ooxml.py` を呼び出し、Excel 保存で混入する絶対パスと作成者情報を除去する。
 - `verify_v02_windows.py` は 103 件中 100 件合格である。不合格 3 件は D12:F12 の状態表示を前提とした旧仕様の検査であり、v0.3 では対象外とする。
-- `verify_excel_windows.py` は `CalculateFullRebuild` が画面ロック中のセッションで完了しないため未完了である。対話セッションで再実行する。
+- `verify_excel_windows.py` は 13 件すべて合格である。非対話セッションでは `CalculationState` が 0 に戻らないため、待機処理を削除し、同期実行の `CalculateFullRebuild` のみを使用する。
 
