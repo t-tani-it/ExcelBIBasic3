@@ -20,3 +20,6 @@ dist/
 # 実機検証の生成物
 windows_*_results.json
 *_verify.txt
+
+# v0.5 の検証結果は成果物として保持する
+!windows_v05_results.json

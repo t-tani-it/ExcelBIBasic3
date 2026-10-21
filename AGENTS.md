@@ -11,12 +11,14 @@
 - 生成物: 購入者向け `.xlsx`（マクロなし、外部リンクなし）
 - 現行仕様: `docs/document_index.md`、`docs/v0.4_method_a_addendum.md`、`docs/decision_log.md`
 - 別成果物の要求: `docs/variant_requirements.md`。v0.4 の仕様を変更しない
+- v0.5 成果物: `prototype_v05_design_b.xlsx`。設計と検証は `docs/variant_design_b/` を参照する
 - 履歴仕様: `docs/requirements.md`、`docs/design_spec.md`、`docs/calculation_spec.md`、`docs/implementation_plan.md`、`docs/compatibility_matrix.md`。RevA の旧方式であり、現行仕様として扱わない
 - テスト: `docs/test_spec.md`。第17節を v0.4 の正とし、第18節をバリアントの受入とする
 - 作業管理: `docs/progress.md`（タスクと状態）、`docs/handover.md`（フェーズ引き継ぎ）
 - v0.4 再ビルド工程: `build_v04_a.py`、`finalize_v03_ooxml.py`
+- v0.5 再ビルド工程: `build_v05_design_b.py`
 - v0.2 以前の再ビルド工程（履歴）: `build.mjs`、`enhance.mjs`、`finalize_ooxml.py`
-- 検証: `verify_v04_windows.py`、`verify_v03_windows.py`、`verify_v02_windows.py`、`verify_excel_windows.py`
+- 検証: `verify_v05_windows.py`、`verify_v04_windows.py`、`verify_v03_windows.py`、`verify_v02_windows.py`、`verify_excel_windows.py`
 
 ## 開発環境
 - OS は Windows を前提とする。
@@ -56,6 +58,9 @@
 - v0.4 のブックと文書を上書きしない。成果物は別ファイル・別文書とする。
 - 文書の優先順位は `docs/document_index.md` に従う。
 - バリアントの受入は `docs/test_spec.md` 第18節に従う。
+- v0.5 デザインバリアント B は 233 / 233 合格である。手動 UI、実印刷、性能は未検証である。
+- v0.5 のヒートマップは `IFERROR` を使用しない。`ISERROR` と `COUNTIFS` で 3 状態を区別する。
+- v0.5 のタイムラインは `TimeSlicerStyleLight1` を使用する。`TimelineStyleLight2` の設定は COM エラーとなる。
 
 ## コーディング規約（スクリプト）
 - 各ファイルの冒頭に、目的、仕様、前提、入出力、注意点、拡張ポイント、変更履歴をコメントで記載する。
@@ -82,8 +87,12 @@
   - `.\.venv\Scripts\python.exe build_v04_a.py prototype_v03.xlsx prototype_v04.xlsx`
 - v0.4 の実機検証は次のコマンドで行う。
   - `.\.venv\Scripts\python.exe verify_v04_windows.py prototype_v04.xlsx`
-- v0.2 以前の Node 工程は履歴であり、v0.4 の再生成には使用しない。
-- 検証は `package_checks.json`、`engine_tests.json`、`notes_manifest.json`、`sales_fixture.json` の期待値と照合する。v0.4 は `windows_v04_results.json` を正とする。
+- v0.5 の再ビルドは次のコマンドで行う。
+  - `.\.venv\Scripts\python.exe build_v05_design_b.py prototype_v04.xlsx prototype_v05_design_b.xlsx`
+- v0.5 の実機検証は次のコマンドで行う。
+  - `.\.venv\Scripts\python.exe verify_v05_windows.py prototype_v05_design_b.xlsx windows_v05_results.json`
+- v0.2 以前の Node 工程は履歴であり、v0.4 と v0.5 の再生成には使用しない。
+- 検証は `package_checks.json`、`engine_tests.json`、`notes_manifest.json`、`sales_fixture.json` の期待値と照合する。v0.4 は `windows_v04_results.json`、v0.5 は `windows_v05_results.json` を正とする。
 - 実機検証が未実施の範囲は「実機保証なし」と明示する。
 
 ## README記載ルール
@@ -107,3 +116,4 @@
 - 2026-10-21: 初版作成（仕様策定フェーズの確定事項を反映）。
 - 2026-10-22: D-24 の方式 A、PT-07/08 のタイムライン非連動、v0.4 のビルド・検証コマンドを反映。
 - 2026-10-22: D-25 のデザインバリアント要求、D-26 のヒートマップ相違、文書索引と追補を反映。
+- 2026-10-22: D-27 の v0.5 デザインバリアント B、233 / 233 合格、ビルド・検証コマンドを反映。
