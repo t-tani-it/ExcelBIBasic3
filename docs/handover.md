@@ -2,7 +2,7 @@
 
 - 更新日: 2026-10-22
 - 対象フェーズ: v0.4 方式 A 実装・検証（完了）
-- 次フェーズ: 手動 UI 確認、P4 ゲージ・目標管理の要否判断
+- 次フェーズ: 別セッション・別モデルによるデザインバリアント実装、手動 UI 確認、P4 ゲージ・目標管理の要否判断
 
 ## 1. 方針（計画）
 - 当初は ExcelBIBasic2 の試作（SUMIFS 版）を土台に、Power Query、データモデル、ピボットテーブル、ピボットグラフ、スライサー、タイムライン構成へ再設計する計画であった。
@@ -188,4 +188,39 @@ D-22 によりデータモデル方式が実行不能であるため、D-24 の�
 | v0.4 ビルド | `.\.venv\Scripts\python.exe build_v04_a.py prototype_v03.xlsx prototype_v04.xlsx` |
 | v0.4 検証 | `.\.venv\Scripts\python.exe verify_v04_windows.py prototype_v04.xlsx` |
 | ビルド込み後処理 | `build_v04_a.py` が `finalize_v03_ooxml.sanitize_package` を呼び出す |
+
+## 10. 別セッション向け要求整理（2026-10-22）
+
+### 方針
+
+- 別セッション・別モデルは `prototype_v04.xlsx` を複製し、既存の見積・原価・利益シートを維持する。
+- `売上分析` シートは削除し、同名のシートを 0 から再作成する。
+- 優れた UI があれば採用してよい。固定要件を壊さず、採用元、採用理由、ライセンスを設計書へ記録する。
+- デザイン差は、配色、KPI カードの構成、グラフ構成のうち 2 つ以上とする。
+- v0.4 のブックと文書は上書きしない。成果物は別ファイル・別文書とする。
+
+### 成果物
+
+| 文書 | 内容 |
+|---|---|
+| `docs/document_index.md` | 現行文書と履歴文書の優先順位 |
+| `docs/v0.4_method_a_addendum.md` | v0.4 方式Aの追補仕様 |
+| `docs/variant_requirements.md` | 別セッション・別モデル向けの固定要件とデザイン可変要件 |
+| `docs/decision_log.md` D-25 | デザインバリアントの要求分離 |
+| `docs/decision_log.md` D-26 | v0.4 ヒートマップの実装相違 |
+
+### 注意
+
+- RevA の `requirements.md`、`design_spec.md`、`implementation_plan.md`、`calculation_spec.md`、`compatibility_matrix.md` は履歴として扱う。
+- v0.4 のヒートマップは `IFERROR` で空欄化しており、0 円、データなし、選択範囲外の 3 状態を完全には区別していない。バリアントでは 3 状態の区別を必須とする。
+- バリアントの受入は `docs/test_spec.md` 第18節と `docs/variant_requirements.md` に従う。
+- バリアントの手動 UI、印刷、性能は、実施していない場合は「未検証」と記録する。
+
+### 実行コマンド
+
+| 目的 | コマンド |
+|---|---|
+| バリアントの要求確認 | `docs/variant_requirements.md` を読む |
+| バリアントの設計開始 | `prototype_v04.xlsx` を複製し、`売上分析` シートを削除して再作成する |
+| v0.4 の再確認 | `.\.venv\Scripts\python.exe verify_v04_windows.py prototype_v04.xlsx` |
 
