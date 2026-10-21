@@ -1,0 +1,18 @@
+# 仮想環境（絶対パスを含むため除外）
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Excel の一時ファイル
+~$*
+
+# 作業用の出力
+.artifacts/
+out/
+dist/

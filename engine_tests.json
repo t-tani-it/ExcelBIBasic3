@@ -1,0 +1,242 @@
+[
+  {
+    "name": "木工 売上",
+    "expected": 160000,
+    "actual": 160000,
+    "pass": true
+  },
+  {
+    "name": "木工 原価",
+    "expected": 88000,
+    "actual": 88000,
+    "pass": true
+  },
+  {
+    "name": "木工 利益",
+    "expected": 72000,
+    "actual": 72000,
+    "pass": true
+  },
+  {
+    "name": "木工 利益率",
+    "expected": 0.45,
+    "actual": 0.45,
+    "pass": true
+  },
+  {
+    "name": "木工 10%値引利益",
+    "expected": 56000,
+    "actual": 56000,
+    "pass": true
+  },
+  {
+    "name": "試算変更で見積書は不変",
+    "expected": 176000,
+    "actual": 176000,
+    "pass": true
+  },
+  {
+    "name": "原価10%増",
+    "expected": 96800,
+    "actual": 96800,
+    "pass": true
+  },
+  {
+    "name": "重複IDを遮断",
+    "expected": "原価明細を確認",
+    "actual": "原価明細を確認",
+    "pass": true
+  },
+  {
+    "name": "売価0円の率",
+    "expected": "算出不可",
+    "actual": "算出不可",
+    "pass": true
+  },
+  {
+    "name": "目標100%を遮断",
+    "expected": "試算条件の範囲確認",
+    "actual": "試算条件の範囲確認",
+    "pass": true
+  },
+  {
+    "name": "農家 生産単価",
+    "expected": 200,
+    "actual": 200,
+    "pass": true
+  },
+  {
+    "name": "農家 原価",
+    "expected": 140000,
+    "actual": 140000,
+    "pass": true
+  },
+  {
+    "name": "農家 利益",
+    "expected": 60000,
+    "actual": 60000,
+    "pass": true
+  },
+  {
+    "name": "農家 税込",
+    "expected": 216000,
+    "actual": 216000,
+    "pass": true
+  },
+  {
+    "name": "収穫量減少 原価",
+    "expected": 165000,
+    "actual": 165000,
+    "pass": true
+  },
+  {
+    "name": "収穫量0時は利益非表示",
+    "expected": "",
+    "actual": "",
+    "pass": true
+  },
+  {
+    "name": "確定10%値引税込",
+    "expected": 194400,
+    "actual": 194400,
+    "pass": true
+  },
+  {
+    "name": "数量変更で一式配送は固定",
+    "expected": 113000,
+    "actual": 113000,
+    "pass": true
+  },
+  {
+    "name": "負の原価単価を遮断",
+    "expected": "",
+    "actual": "",
+    "pass": true
+  },
+  {
+    "name": "未登録原価IDを遮断",
+    "expected": "",
+    "actual": "",
+    "pass": true
+  },
+  {
+    "name": "売価欠損を遮断",
+    "expected": "",
+    "actual": "",
+    "pass": true
+  },
+  {
+    "name": "ワイルドカードIDを遮断",
+    "expected": "",
+    "actual": "",
+    "pass": true
+  },
+  {
+    "name": "税率混在の税額",
+    "expected": 174800,
+    "actual": 174800,
+    "pass": true
+  },
+  {
+    "name": "原価100%減の試算",
+    "expected": 0,
+    "actual": 0,
+    "pass": true
+  },
+  {
+    "name": "分析売上 全業種/2026/1-12",
+    "expected": 47492700,
+    "actual": 47492700,
+    "pass": true
+  },
+  {
+    "name": "分析差額 全業種/2026/1-12",
+    "expected": 18852426,
+    "actual": 18852426,
+    "pass": true
+  },
+  {
+    "name": "ヒートマップ照合 全業種",
+    "expected": 1700000,
+    "actual": 1700000,
+    "pass": true
+  },
+  {
+    "name": "分析売上 木工所/2025/3-6",
+    "expected": 12770000,
+    "actual": 12770000,
+    "pass": true
+  },
+  {
+    "name": "分析差額 木工所/2025/3-6",
+    "expected": 5232350,
+    "actual": 5232350,
+    "pass": true
+  },
+  {
+    "name": "ヒートマップ照合 木工所",
+    "expected": 1950000,
+    "actual": 1950000,
+    "pass": true
+  },
+  {
+    "name": "分析売上 農家/2026/12-12",
+    "expected": 941800,
+    "actual": 941800,
+    "pass": true
+  },
+  {
+    "name": "分析差額 農家/2026/12-12",
+    "expected": 325912,
+    "actual": 325912,
+    "pass": true
+  },
+  {
+    "name": "ヒートマップ照合 農家",
+    "expected": 0,
+    "actual": 0,
+    "pass": true
+  },
+  {
+    "name": "分析売上 全業種/2025/1-1",
+    "expected": 3992800,
+    "actual": 3992800,
+    "pass": true
+  },
+  {
+    "name": "分析差額 全業種/2025/1-1",
+    "expected": 1625932,
+    "actual": 1625932,
+    "pass": true
+  },
+  {
+    "name": "ヒートマップ照合 全業種",
+    "expected": 1550000,
+    "actual": 1550000,
+    "pass": true
+  },
+  {
+    "name": "逆転期間を警告",
+    "expected": "期間・業種の入力を確認してください",
+    "actual": "期間・業種の入力を確認してください",
+    "pass": true
+  },
+  {
+    "name": "逆転期間集計除外",
+    "expected": 0,
+    "actual": 0,
+    "pass": true
+  },
+  {
+    "name": "D12自動状態",
+    "expected": "入力OK",
+    "actual": "入力OK",
+    "pass": true
+  },
+  {
+    "name": "D12異常時",
+    "expected": "要確認",
+    "actual": "要確認",
+    "pass": true
+  }
+]

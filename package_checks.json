@@ -1,0 +1,18 @@
+{
+  "all_xml_well_formed": true,
+  "no_vba": true,
+  "no_external_links": true,
+  "indirect_formula_count": 24,
+  "no_optional_sheet_direct_references": true,
+  "no_cached_formula_errors": true,
+  "scrollbar_link": "採算シミュレーション!B9 (0–100; increment 1)",
+  "native_excel_verified": false,
+  "notes_count": 74,
+  "all_requested_notes_present": true,
+  "no_sheet_protection_or_panes": true,
+  "all_cell_styles_unlocked": true,
+  "single_legacy_drawing_per_sheet": true,
+  "notes_exact_locations_and_text": true,
+  "all_74_notes_hidden": true,
+  "final_xlsx_reimport_render_passed": true
+}
