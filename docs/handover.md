@@ -1,8 +1,8 @@
 # フェーズ引き継ぎ（ExcelBIBasic3）
 
 - 更新日: 2026-10-22
-- 対象フェーズ: v0.5 デザインバリアント B 実装・検証（完了）
-- 次フェーズ: v0.5 の手動 UI・実印刷・性能確認、v0.4 の手動 UI 確認、P4 ゲージ・目標管理の要否判断
+- 対象フェーズ: v0.6 デザインバリアント C 実装・自動検証（完了）
+- 次フェーズ: v0.6 手動 UI・実印刷・追加性能確認、v0.5 / v0.4 の手動確認、P4 判断
 
 > 2026-10-22: プロジェクト名を `ExcelBIBasic_DeepSeek_V4.1` に変更した。入口文書のみ新名とし、本文の `ExcelBIBasic3` は歴史記録として残す。v0.6 デザイン C を担当する次モデルは、本ファイルではなく `docs/next_model/START_HERE.md` から開始する。改名後の再検証は v0.4 173 / 173、v0.5 233 / 233 合格である。
 
@@ -343,3 +343,90 @@ v0.4 の複製から `売上分析` シートだけを削除し、同名のシ�
 | v0.5 検証 | `.\.venv\Scripts\python.exe verify_v05_windows.py prototype_v05_design_b.xlsx windows_v05_results.json` |
 | v0.4 の再確認 | `.\.venv\Scripts\python.exe verify_v04_windows.py prototype_v04.xlsx` |
 
+## 12. v0.6 デザインバリアント C 実装・検証（2026-10-22）
+
+### 方針（計画）
+
+- 作業ルートを Luna コピーに固定し、親・兄弟プロジェクトを参照しない。
+- v0.5 を一時出力先で 233 / 233 再確認してから、`prototype_v04.xlsx` を読み取り専用の出発点として v0.6 を作成する。
+- 方式 A と既存計算を維持し、Warm Slate Editorial、4 グラフ、3 状態ヒートマップ、証拠資料を作成する。
+
+### 実装（実行）
+
+- AGENTS.md の先頭へ Luna 固有ルールを追加し、作業ルートと Git 操作の優先順位を明記した。
+- Python 3.11 ランチャーがなかったため、指定フォールバックで Python 3.9.7 の `.venv` を作成した。pywin32 312 を導入し、COM 読込を確認した。
+- v0.5 の一時回帰は 233 / 233 合格した。`prototype_v05_design_b.xlsx` と v0.5 専用文書は変更していない。
+- `build_v06_design_c.py`、`verify_v06_windows.py`、`prototype_v06_design_c.xlsx`、`windows_v06_results.json` を作成した。
+- 設計書 RevB、UI 参照ログ、検証結果、既知の問題、プレビュー画像、進捗・索引を更新した。D-30 に補助範囲とコントラスト調整を記録した。
+- Git は未初期化のままであり、git init、commit、push は実行していない。
+
+### 結果
+
+| 項目 | 結果 |
+|---|---|
+| 自動検証 | 240 / 240 合格（既存 233 件を維持） |
+| デザイン評価 | 20 / 24。重大項目に 0 点なし |
+| PDF 確認 | A4 横向き、1 ページ。実印刷は未検証 |
+| 性能 | 3 回の中央値。v0.5 開く 0.284 秒 / 再計算 0.035 秒、v0.6 開く 0.230 秒 / 再計算 0.034 秒 |
+| 公開禁止情報 | 自動走査 0 件。作成者は `ExcelBIBasic_DeepSeek_V4.1` |
+| 成果物 | `prototype_v06_design_c.xlsx`、ビルド・検証スクリプト、結果 JSON、設計・検証文書、`preview.png` |
+
+### 残タスク
+
+- スライサー操作、タイムライン操作、Excel 再起動後の状態を実機確認する。
+- 実印刷、100% / 125% 表示、色覚多様性を確認する。
+- スライサー操作性能と低スペック環境の性能を測定する。
+- Python 3.11 系と Excel の完全な更新番号で再確認する。
+- v0.5 / v0.4 の手動 UI 確認、P4 ゲージ・目標管理の要否判断を継続する。
+
+### 実行コマンド
+
+| 目的 | コマンド |
+|---|---|
+| v0.5 事前回帰 | `.\.venv\Scripts\python.exe verify_v05_windows.py prototype_v05_design_b.xlsx $env:TEMP\windows_v05_results_check.json` |
+| v0.6 ビルド | `.\.venv\Scripts\python.exe build_v06_design_c.py prototype_v04.xlsx prototype_v06_design_c.xlsx` |
+| v0.6 検証 | `.\.venv\Scripts\python.exe verify_v06_windows.py prototype_v06_design_c.xlsx windows_v06_results.json` |
+## 13. v0.6 データ差分・UI修正（2026-10-22）
+
+### 方針（計画）
+
+- 共通 fixture、v0.4 / v0.5 を変更せず、v0.6 専用の決定的な架空データを作る。
+- 2025年の基準データを保ち、2026年は税抜売上総額を約8%増とし、月別・商品別構成を変える。
+- 年別タイムライン選択、メモ図形、グラフの列境界を自動検証する。
+
+### 実装（実行）
+
+- `generate_sales_fixture_v06.py` から `sales_fixture_v06.json` を生成した。乱数は使わず、共通 `sales_fixture.json` は変更していない。
+- v0.6 ビルドはコピー先の `SalesHistory` だけを fixture の値へ差し替え、v0.4 入力は読み取り専用で維持した。
+- 2025年は2025-01〜2025-12、2026年は2026-01〜2026-12 の月別・商品別配分を変更した。
+- メモ74件を矩形・自動サイズへ設定した。4グラフは最終列幅の後でQ列内へ収めた。
+- タイムラインを2025年のみ、2026年のみ、両年に切り替え、ヒートマップ追従を一時コピーで検証した。
+- 正式ブックを置き換える前にユーザーが開いていたため、閉じてもらってから合格候補を反映した。
+
+### 結果
+
+| 項目 | 結果 |
+|---|---|
+| 2025年売上 / 原価 / 差額 | 48,027,300 円 / 28,999,224 円 / 19,028,076 円 |
+| 2026年売上 / 原価 / 差額 | 51,869,100 円 / 31,729,100 円 / 20,140,000 円 |
+| 2026年の売上成長 | 2025年比 7.9992% |
+| 自動検証 | 259 / 259 合格 |
+| コメント | 74 / 74 矩形、自動サイズ、本文一致 |
+| グラフ | 4 / 4 Q列内 |
+| タイムライン | 2025のみ、2026のみ、両年の3ケース合格 |
+| v0.4 / v0.5 | ブックおよび専用文書は変更なし |
+| Git | 未初期化。git init、commit、push は未実施 |
+
+### 残タスク
+
+- マウスによるスライサー・タイムライン操作、Excel 再起動後の状態を確認する。
+- 実印刷、100% / 125% 表示、色覚多様性シミュレーションを確認する。
+- スライサー操作時間と低スペック環境での性能を測定する。
+
+### 実行コマンド
+
+| 目的 | コマンド |
+|---|---|
+| v0.6 fixture 再生成 | `.\.venv\Scripts\python.exe generate_sales_fixture_v06.py` |
+| v0.6 候補ビルド | `.\.venv\Scripts\python.exe build_v06_design_c.py prototype_v04.xlsx prototype_v06_design_c_candidate.xlsx` |
+| 候補検証 | `.\.venv\Scripts\python.exe verify_v06_windows.py prototype_v06_design_c_candidate.xlsx windows_v06_candidate_results.json` |

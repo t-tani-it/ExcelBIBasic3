@@ -1,6 +1,6 @@
 # 外部 UI 参照ログ（ExcelBIBasic_DeepSeek_V4.1）
 
-- 版: RevA
+- 版: RevB
 - 作成日: 2026-10-22
 - 対象: v0.6 デザイン C
 - 目的: 外部のデザイン、テンプレート、配色、アイコン、グラフ配置の参照元とライセンスを記録する
@@ -20,7 +20,7 @@
 |---|---|---|---|---|---|---|---|
 | R-01 | IBM Carbon Design System | https://carbondesignsystem.com/ | Apache-2.0 | 8 px 基準の間隔、12 カラム、文字階層、余白の考え方 | 列幅・行高・セル結合・カード余白で近似 | 色とフォントは本プロジェクト用に変更 | 採用 |
 | R-02 | Financial Times Visual Vocabulary | https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary | MIT | 目的別のグラフ選択。推移は線、比較は棒、構成は積み上げ棒 | Excel の折れ線、横棒、100% 積み上げ横棒 | 2 分類の円グラフを廃止 | 採用 |
-| R-03 | Microsoft Fluent UI System Icons | https://github.com/microsoft/fluentui-system-icons | MIT | 16〜20 px の線アイコン、モノクロ、最小限の使用 | PNG 画像または Excel 図形。最大 6 個 | 色は Navy または Gray に統一 | 候補 |
+| R-03 | Microsoft Fluent UI System Icons | https://github.com/microsoft/fluentui-system-icons | MIT | 線アイコンの密度・最小使用の考え方を確認 | アイコンは使用せず、Excel 標準部品のみ | アイコンが情報階層を改善しないため不採用。外部素材を同梱しない | 不採用 |
 | R-04 | Lucide | https://lucide.dev/ | ISC | 線アイコンのスタイル | 原則使用しない。Fluent と混在させない | 採用しない | 不採用 |
 | R-05 | Material Symbols | https://github.com/google/material-design-icons | Apache-2.0 | アイコンの線幅、余白の考え方 | 原則使用しない。Fluent と混在させない | 採用しない | 不採用 |
 
@@ -83,8 +83,16 @@
 - R-04 と R-05 は不採用とし、アイコンスタイルの混在を避ける。
 - 色は `design_tokens.json` の v0.5 系パレットを基本とする。外部パレットを採用する場合は、このログに追加する。
 
+### 7.1 v0.6 実装結果
+
+- R-01 と R-02 の考え方を採用し、12 カラム相当の配置、8 px 基準の余白、目的別グラフを Excel 標準機能で再現した。
+- R-03 は確認したが採用しなかった。アイコンなしでも操作階層が成立し、外部アイコン素材の埋め込みを避けられるためである。
+- R-04 と R-05 は不採用とした。アイコンの混在を避け、視覚ノイズを増やさないためである。
+- 外部 UI の画像、フォント、アイコン、リンクはブックへ埋め込んでいない。
+
 ## 8. 変更履歴
 
 | 日付 | 内容 |
 |---|---|
 | 2026-10-22 | 初版作成。Carbon、FT Visual Vocabulary、Fluent、Lucide、Material Symbols を記録 |
+| 2026-10-22 | RevB。v0.6 の採用・不採用、Excel 実装、非埋め込み方針を記録 |

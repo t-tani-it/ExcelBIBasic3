@@ -1,7 +1,8 @@
 # 次モデル入口（ExcelBIBasic_DeepSeek_V4.1）
 
-- 版: RevA
+- 版: RevC
 - 作成日: 2026-10-22
+- 改訂内容: D-31 / D-32 の専用 fixture、年別追従、コメント形状、グラフ幅要件を追加
 - 対象: v0.6 デザイン C を担当する別セッション・別モデル
 - 旧名: `ExcelBIBasic3`（過去文書には旧名が残る）
 
@@ -23,7 +24,7 @@
 - `docs/variant_design_b/design_spec.md`（v0.5 の設計）
 - `docs/variant_design_b/known_issues.md`（v0.5 の未検証範囲）
 
-`docs/handover.md`、`docs/progress.md`、`docs/decision_log.md` の全履歴は読まない。必要な決定は D-22、D-24、D-25、D-26、D-27、D-28、D-29 だけである。
+`docs/handover.md`、`docs/progress.md`、`docs/decision_log.md` の全履歴は読まない。必要な決定は D-22、D-24、D-25、D-26、D-27、D-28、D-29、D-30、D-31、D-32 だけである。
 
 ## 2. 目的
 
@@ -32,6 +33,7 @@
 - 成果物: `prototype_v06_design_c.xlsx`
 - ビルド: `build_v06_design_c.py`
 - 検証: `verify_v06_windows.py`
+- 専用データ生成: `generate_sales_fixture_v06.py`、`sales_fixture_v06.json`
 - 検証結果: `windows_v06_results.json`
 - 設計・検証文書: `docs/variant_design_c/`
 - 画面画像: `docs/variant_design_c/preview.png`
@@ -48,6 +50,7 @@ v0.4 と v0.5 のブック・文書は上書きしない。
 | 検証のベース | `verify_v05_windows.py` |
 | 回帰基準 | `windows_v05_results.json` |
 | データ理解 | `sales_fixture.json` |
+| v0.6 入力データ | `sales_fixture_v06.json`（共通 fixture を変更しない） |
 
 次は歴史資産であり、v0.6 のベースにしない。
 
@@ -92,6 +95,7 @@ v0.5 が 233 / 233 合格することを確認してから v0.6 を触る。不�
 - ヒートマップの `IFERROR` 再導入
 - `TimelineStyleLight2` の再試行
 - `prototype_v04.xlsx` と `prototype_v05_design_b.xlsx` の上書き
+- 共通 `sales_fixture.json` の上書き。v0.6 は `sales_fixture_v06.json` を使う
 - 旧スライサーキャッシュ名 `SL_業種`、`SL_商品`、`TL_日付` の再利用
 
 ## 7. デザイン目標
@@ -101,6 +105,9 @@ v0.5 が 233 / 233 合格することを確認してから v0.6 を触る。不�
 - 外部 UI は 3〜5 件まで参照する。良い要素は Excel のセル、図形、グラフ、スライサー、条件付き書式で再現する。
 - 参考画像の貼り付け、外部リンク、外部フォント、外部アイコンフォントの埋め込みは行わない。
 - デザイン点数は 20 / 24 以上、重大項目に 0 がないこと。
+- 2025年の基準データを保持し、2026年の税抜売上合計は2025年比約8%増とする。月別・商品別の配分も変える。
+- ヒートマップはタイムラインの2025年のみ、2026年のみ、両年選択に追従させる。初期表示の2025年空欄は範囲外表示である。
+- 既存メモ74件は矩形・自動サイズとし、4グラフの右端はQ列内に収める。
 
 ## 8. 時間予算と停止条件
 
@@ -115,7 +122,7 @@ v0.5 が 233 / 233 合格することを確認してから v0.6 を触る。不�
 
 ## 9. 完了条件
 
-- `verify_v06_windows.py` が 233 / 233 合格する。
+- `verify_v06_windows.py` が233件以上合格する。現在は259 / 259である。
 - デザイン点数が 20 / 24 以上で、重大項目に 0 がない。
 - 手動確認の未実施範囲を `known_issues.md` に明記する。
 - 画面画像 `docs/variant_design_c/preview.png` がある。
@@ -134,7 +141,7 @@ v0.5 が 233 / 233 合格することを確認してから v0.6 を触る。不�
 4. 8 個の PT のうち、タイムライン非連動はどれか。
 5. ヒートマップの 3 状態は何か。
 6. 変更してはいけない既存計算は何か。
-7. 233 / 233 の検証コマンドは何か。
+7. 年別タイムライン検証と259 / 259 のコマンドは何か。
 8. デザイン合格点は何点か。
 9. 外部 UI を使う場合に記録する項目は何か。
 10. v0.4 / v0.5 を上書きしない理由は何か。

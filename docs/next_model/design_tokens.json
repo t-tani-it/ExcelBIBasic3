@@ -1,12 +1,14 @@
 {
   "meta": {
     "name": "ExcelBIBasic_DeepSeek_V4.1 design tokens",
-    "version": "RevA",
+    "version": "RevB",
     "date": "2026-10-22",
     "baseline": "v0.5 design variant B",
     "target": "v0.6 design variant C",
     "notes": [
       "v0.5 の色を基準に、v0.6 で文字階層と余白を強める。",
+      "Gray は Paper 背景上の本文・注記で 4.5:1 以上を確保する値へ調整した。",
+      "小さい白文字を置く Coral 面は Deep Coral を使い、4.5:1 以上を確保する。",
       "外部 UI の色を採用する場合は ui_reference_log.md に出典とライセンスを記録する。",
       "色だけで状態を伝えない。"
     ]
@@ -20,7 +22,7 @@
     "paper": "#F7F3EE",
     "white": "#FFFFFF",
     "text": "#2D3442",
-    "gray": "#6E7480",
+    "gray": "#686E78",
     "border": "#D6CDC1",
     "lightPeach": "#F6E3D8",
     "mutedBlue": "#5B7C99",

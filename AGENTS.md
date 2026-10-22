@@ -1,5 +1,28 @@
 # ExcelBIBasic_DeepSeek_V4.1 - プロジェクト永続ルール（AGENTS.md）
 
+## Luna 固有作業ルール（この節を最優先する）
+- このフォルダは `ExcelBIBasic_DeepSeek_V4.1` の自己完結コピーであり、作業ルートは本 `AGENTS.md` の所在フォルダである。
+- 相対パスはすべてこの作業ルートを基準とする。親フォルダ、兄弟プロジェクト、Luna 外の Markdown は参照しない。
+- コピー元の一般ルールと本節が矛盾する場合、本節を優先する。特に作業ルートと GitHub 操作の規則は本節を優先する。
+- 成果物の正規プロジェクト名および作成者メタデータは `ExcelBIBasic_DeepSeek_V4.1` とする。フォルダ名 `ExcelBIBasic_Luna` は作業場所の別名である。
+- v0.6 は `prototype_v04.xlsx` を読み取り専用の出発点として `prototype_v06_design_c.xlsx` を作る。`prototype_v04.xlsx`、`prototype_v05_design_b.xlsx` と v0.5 専用文書は変更しない。
+- `.git` と `.venv` はコピーされていない前提である。仮想環境は本フォルダ直下に作成し、他案件の conda 環境を流用しない。
+- Git は未初期化である。明示指示があるまで `git init`、commit、push を行わない。この規則は下記の一般 GitHub 運用ルールより優先する。
+- ローカルパス、API キー、個人 ID、トークン、認証情報をコード、ログ、設定、成果物へ含めない。
+- v0.5 の一時出力先を使った 233 / 233 の再検証に合格するまで、v0.6 のブックやビルド処理を変更しない。不合格なら原因調査で停止する。
+
+## Luna 作業対象と受入条件
+- v0.6 の成果物は `build_v06_design_c.py`、`verify_v06_windows.py`、`prototype_v06_design_c.xlsx`、`windows_v06_results.json` および `docs/variant_design_c/` 配下の設計・検証資料である。
+- v0.6 の架空売上データは `sales_fixture_v06.json` と `generate_sales_fixture_v06.py` で管理する。行数576、8商品、24か月を維持し、2026年の税抜売上合計は2025年比約8%増とする。共通 `sales_fixture.json` は変更しない。
+- 商品×月ヒートマップは日付タイムラインに追従する。2025年のみ、2026年のみ、両年選択を検証する。初期タイムラインは2026年である。
+- 既存メモ74件は通常の四角形図形とし、自動サイズ調整で全文を表示する。4グラフは最終列幅適用後に配置し、右端をQ列内に収める。
+- デザイン方向は Warm Slate Editorial とする。自動検証は 233 / 233 以上、デザイン評価は 20 / 24 以上かつ重大項目に 0 点なしとする。
+- 方式 A、8 個の PT、共有キャッシュ 1 個、業種・商品スライサーの全 PT 接続、タイムライン PT-01〜PT-06 接続、PT-07 / PT-08 非接続を維持する。
+- メモ 74 件、`INDIRECT` 24 件、既存計算式を維持する。ヒートマップは `ISERROR` と `COUNTIFS` で 0 円・データなし・範囲外を区別し、`IFERROR` を使わない。
+- 外部 UI の参照は 3〜5 件までとし、URL、ライセンス、採用要素、Excel 実装、改変内容を `docs/next_model/ui_reference_log.md` と設計書に記録する。外部素材をブックへ埋め込まない。
+- 手動 UI、実印刷、性能、色覚多様性で未実施の範囲は `known_issues.md` に「未検証」と記録し、合格扱いにしない。
+- 共有文書は Luna 内の `docs/progress.md`、`docs/handover.md`、`docs/document_index.md`、`docs/decision_log.md` の必要な範囲だけ更新する。
+
 - 旧称: `ExcelBIBasic3`（2026-10-22 に改名）
 - 改名の詳細は `docs/project_rename.md` を参照する。過去の RevA 文書と v0.4 / v0.5 の旧名は歴史記録として残す。
 
@@ -93,7 +116,7 @@
 - push 前に `git status` と `git diff --cached` で禁止情報を確認する。
 
 ## ビルド・実行・検証
-- 作業ディレクトリは `ExcelBIBasic_DeepSeek_V4.1` とする。
+- コピー元環境の既定作業ディレクトリは `ExcelBIBasic_DeepSeek_V4.1` である。本 Luna コピーでは、先頭の「Luna 固有作業ルール」を優先する。
 - v0.4 の再ビルドは次のコマンドで行う。詳細な引数は `README.md` を参照する。
   - `.\.venv\Scripts\python.exe build_v04_a.py prototype_v03.xlsx prototype_v04.xlsx`
 - v0.4 の実機検証は次のコマンドで行う。

@@ -1,6 +1,6 @@
 # 文書索引（ExcelBIBasic_DeepSeek_V4.1）
 
-- 版: RevA
+- 版: RevC
 - 作成日: 2026-10-22
 - 目的: 現行仕様と履歴文書の優先順位を明示する
 - 対象: v0.4 方式A、v0.5 デザインバリアント B、v0.6 デザイン C 設計、および別セッション・別モデル向け要求
@@ -11,11 +11,11 @@
 同一事項の記載が衝突する場合、次の順で上位を優先する。
 
 1. `AGENTS.md`
-2. `docs/decision_log.md` の最新決定（D-22、D-24、D-25、D-26、D-27、D-28、D-29）
+2. `docs/decision_log.md` の最新決定（D-22、D-24、D-25、D-26、D-27、D-28、D-29、D-30、D-31、D-32）
 3. `docs/v0.4_method_a_addendum.md`
 4. `docs/variant_requirements.md`（別セッション・別モデル用）
 5. `docs/variant_design_b/design_spec.md`（v0.5 実装済みの設計）
-6. `docs/variant_design_c/design_spec.md`（v0.6 設計中）
+6. `docs/variant_design_c/design_spec.md`（v0.6 実装済み RevC）
 7. `docs/next_model/START_HERE.md`（v0.6 次モデル入口）
 8. `README.md`
 9. `docs/progress.md`、`docs/handover.md`、`docs/test_spec.md` 第17節、第18節
@@ -31,7 +31,7 @@
 | 文書 | 役割 | 状態 | 備考 |
 |---|---|---|---|
 | `AGENTS.md` | プロジェクト永続ルール | 現行 | v0.4 の不変条件とデザインバリアントの方針を含む |
-| `docs/decision_log.md` | 設計上の決定と根拠 | 現行 | D-22、D-24、D-25、D-26、D-27 を優先する |
+| `docs/decision_log.md` | 設計上の決定と根拠 | 現行 | D-22、D-24〜D-32 を優先する |
 | `docs/v0.4_method_a_addendum.md` | v0.4 方式Aの追補仕様 | 現行 | RevA の PQ・データモデル前提を置換する |
 | `docs/variant_requirements.md` | 別セッション・別モデル向け要求 | 現行 | v0.4 とは別ファイルの成果物に適用する |
 | `docs/variant_design_b/design_spec.md` | v0.5 デザインバリアント B の設計 | 現行 | 配色、KPI、グラフ、スライサー、ヒートマップ、採用 UI |
@@ -40,17 +40,36 @@
 | `docs/variant_design_b/change_history.md` | v0.5 の変更履歴 | 現行 | v0.4 からの変更、固定要件の維持確認 |
 | `docs/variant_design_b/handover.md` | v0.5 の引き継ぎ | 現行 | コンテキスト 0% からの再開手順 |
 | `docs/project_rename.md` | プロジェクト改名メモ | 現行 | 旧名、変更対象、対象外、テスト影響、GitHub、作成者方針 |
-| `docs/next_model/START_HERE.md` | v0.6 次モデル入口 | 現行 | 最初に読む 1 枚。成果物、読み順、禁止事項、完了条件 |
+| `docs/next_model/START_HERE.md` | v0.6 次モデル入口 | 現行 RevC | 成果物、読み順、D-30〜D-32、専用fixture、禁止事項 |
+| `docs/next_model/START_HERE_RevB.md` | v0.6 次モデル入口 | 履歴 | データ・UI再修正前の RevB |
 | `docs/next_model/design_brief.md` | v0.6 デザインブリーフ | 現行 | v0.5 評価、Warm Slate Editorial、外部 UI 方針、点数表 |
-| `docs/next_model/design_tokens.json` | v0.6 デザイントークン | 現行 | 色、文字、間隔、グラフ、ヒートマップ、印刷、アクセシビリティ |
-| `docs/next_model/build_cookbook.md` | v0.6 ビルド再利用集 | 現行 | 環境、再利用マップ、COM の罠、基準値、トラブルシューティング |
-| `docs/next_model/acceptance_matrix.md` | v0.6 受入マトリクス | 現行 | 固定要件、233 チェック、デザイン点数、手動確認、外部 UI 確認 |
-| `docs/next_model/ui_reference_log.md` | 外部 UI 参照ログ | 現行 | 参照元、URL、ライセンス、採用要素、Excel 実装、状態 |
+| `docs/next_model/design_tokens.json` | v0.6 デザイントークン | 現行 RevB | 色、文字、間隔、グラフ、ヒートマップ、印刷、アクセシビリティ |
+| `docs/next_model/build_cookbook.md` | v0.6 ビルド再利用集 | 現行 RevC | 専用fixture、候補ビルド、年別検証、コメント・グラフ検査 |
+| `docs/next_model/build_cookbook_RevB.md` | v0.6 ビルド再利用集 | 履歴 | 専用データ導入前の RevB |
+| `docs/next_model/acceptance_matrix.md` | v0.6 受入マトリクス | 現行 RevC | 固定要件、259 チェック、年別データ、コメント、グラフ境界 |
+| `docs/next_model/acceptance_matrix_RevA.md` | v0.6 初版受入マトリクス | 履歴 | 変更禁止の RevA |
+| `docs/next_model/acceptance_matrix_RevB.md` | v0.6 初回実装受入マトリクス | 履歴 | 専用データ refresh 前の RevB |
+| `docs/next_model/ui_reference_log.md` | 外部 UI 参照ログ | 現行 RevB | v0.6 の採用・不採用、URL、ライセンス、Excel 実装 |
 | `docs/next_model/reference_v05.png` | v0.5 画面参照画像 | 現行 | タイトルバーを含まない売上分析の画面範囲 |
-| `docs/variant_design_c/design_spec.md` | v0.6 デザイン C の設計 | 設計中 | Warm Slate Editorial、外部 UI 採用、v0.5 からの変更、受入 |
+| `docs/variant_design_c/design_spec.md` | v0.6 デザイン C の設計・実装結果 | 実装済み RevC | 専用fixture、年別タイムライン、コメント矩形、Q列内グラフ |
+| `docs/variant_design_c/design_spec_RevB.md` | v0.6 初回実装設計 | 履歴 | データ更新前の RevB |
+| `docs/variant_design_c/design_spec_RevA.md` | v0.6 デザイン C の初版設計 | 履歴 | 実装前の RevA。変更禁止 |
+| `build_v06_design_c.py` | v0.6 ビルドスクリプト | 現行 | v0.4 から別成果物を作成 |
+| `verify_v06_windows.py` | v0.6 実機検証スクリプト | 現行 | 既存 233 件以上の検証 |
+| `prototype_v06_design_c.xlsx` | v0.6 デザイン C 成果物 | 現行 | v0.4 / v0.5 とは別ファイル |
+| `generate_sales_fixture_v06.py` | v0.6 架空データ生成 | 現行 | 決定的生成、2026年売上を約8%増 |
+| `sales_fixture_v06.json` | v0.6 専用fixture | 現行 | 576 行、2025 / 2026 年の月別・商品別値 |
+| `docs/variant_design_c/test_results.md` | v0.6 検証結果 | 現行 RevC | 259 / 259、自動・年別タイムライン・コメント・Q列グラフ |
+| `docs/variant_design_c/test_results_RevA.md` | 初回 v0.6 検証結果 | 履歴 | 専用fixture導入前の RevA |
+| `docs/variant_design_c/test_results_RevB.md` | v0.6 初回実装検証結果 | 履歴 | 専用データ refresh 前の RevB |
+| `docs/variant_design_c/known_issues.md` | v0.6 既知の問題 | 現行 RevC | 手動 UI、実印刷、環境差、未検証範囲 |
+| `docs/variant_design_c/known_issues_RevA.md` | 初回 v0.6 既知の問題 | 履歴 | 専用fixture導入前の RevA |
+| `docs/variant_design_c/known_issues_RevB.md` | v0.6 初回実装既知の問題 | 履歴 | 専用データ refresh 前の RevB |
+| `docs/variant_design_c/preview.png` | v0.6 画面プレビュー | 現行 | タイトルバーを含まない画面画像 |
+| `windows_v06_results.json` | v0.6 自動検証結果 | 現行 | 259 / 259 合格 |
 | `README.md` | 利用者向けの操作と再ビルド | 現行 | v0.4、v0.5、v0.6 設計の操作説明を含む |
-| `docs/progress.md` | タスクと状態 | 現行 | v0.4 と v0.5 の結果を含む |
-| `docs/handover.md` | フェーズ引き継ぎ | 現行 | v0.4 と v0.5 の引き継ぎを含む |
+| `docs/progress.md` | タスクと状態 | 現行 | v0.4〜v0.6 の結果と残タスクを含む |
+| `docs/handover.md` | フェーズ引き継ぎ | 現行 | v0.4〜v0.6 の計画、結果、残タスクを含む |
 | `docs/test_spec.md` 第17節 | v0.4 の受入結果 | 現行 | 173 / 173 合格の記録 |
 | `docs/test_spec.md` 第18節 | バリアントの受入 | 現行 | v0.5 の 233 / 233 合格と未検証範囲 |
 
@@ -108,6 +127,8 @@
 7. ビルド時に `docs/next_model/build_cookbook.md`
 8. 必要に応じて `docs/variant_requirements.md`、`docs/v0.4_method_a_addendum.md`、`docs/variant_design_b/known_issues.md`
 
+v0.6 の実装後に参照する文書は、`docs/variant_design_c/test_results.md` と `docs/variant_design_c/known_issues.md` である。
+
 - v0.6 は `prototype_v04.xlsx` を出発点とし、`prototype_v06_design_c.xlsx` を別ファイルとして作成する。
 - v0.5 は視覚参照であり、ビルド入力にしない。
 - 外部 UI は 3〜5 件まで参照し、採用元、URL、ライセンス、採用要素、改変内容を `ui_reference_log.md` に記録する。
@@ -129,3 +150,6 @@
 | 2026-10-22 | v0.5 デザインバリアント B の設計、検証、既知の問題、変更履歴、引き継ぎを追加 |
 | 2026-10-22 | プロジェクト名を `ExcelBIBasic_DeepSeek_V4.1` へ変更。改名メモを追加（D-29） |
 | 2026-10-22 | v0.6 デザイン C の設計、次モデル入口、デザインブリーフ、トークン、受入マトリクス、ビルド集、外部 UI 参照ログを追加（D-28） |
+| 2026-10-22 | v0.6 初回実装・検証資料を追加し、RevA / RevB を保存（D-30） |
+| 2026-10-22 | v0.6 年次データ、年別タイムライン、コメント図形、グラフ境界を更新し、259 / 259 を記録（D-31、D-32） |
+| 2026-10-22 | v0.6 受入・検証・既知の問題の RevC と RevB 履歴を追加 |

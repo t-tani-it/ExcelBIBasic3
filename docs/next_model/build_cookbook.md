@@ -1,9 +1,10 @@
 # v0.6 ビルド・検証クックブック（ExcelBIBasic_DeepSeek_V4.1）
 
-- 版: RevA
+- 版: RevC
 - 作成日: 2026-10-22
 - 対象: v0.6 デザイン C のビルド担当
 - 目的: v0.5 のビルド・検証資産を再利用し、COM の罠と再作業を減らす
+- 改訂内容: v0.6 専用データ生成、259 件検証、年別ヒートマップ、コメント・グラフ修正を追記
 
 ## 1. 環境
 
@@ -41,12 +42,29 @@ v0.6 を触る前に v0.5 の 233 / 233 を確認する。出力は一時ファ�
 |---|---|
 | ビルドスクリプト | `build_v06_design_c.py` |
 | 検証スクリプト | `verify_v06_windows.py` |
+| データ生成スクリプト | `generate_sales_fixture_v06.py` |
+| データ fixture | `sales_fixture_v06.json` |
 | ブック | `prototype_v06_design_c.xlsx` |
 | 検証結果 | `windows_v06_results.json` |
 | 設計書 | `docs/variant_design_c/design_spec.md` |
 | 画面画像 | `docs/variant_design_c/preview.png` |
 
 ビルドの入力は `prototype_v04.xlsx` とする。v0.5 は視覚参照であり、入力にしない。
+
+### 3.1 v0.6 の実行コマンド
+
+PowerShell で Luna 作業ルートから実行する。
+
+```powershell
+.\.venv\Scripts\python.exe generate_sales_fixture_v06.py
+.\.venv\Scripts\python.exe build_v06_design_c.py prototype_v04.xlsx prototype_v06_design_c_candidate.xlsx
+.\.venv\Scripts\python.exe verify_v06_windows.py prototype_v06_design_c_candidate.xlsx windows_v06_candidate_results.json
+```
+
+- `build_v06_design_c.py` は既存の出力ブックを上書きせず停止する。候補を検証した後に正式名へ反映する。
+- v0.5 の事前回帰は、追跡済み JSON ではなく `%TEMP%` の一時出力先へ保存する。
+- v0.6 検証の合格は 233 件以上であり、現在の実装は 259 / 259 である。既存 233 件の検査を削除してはならない。
+- 共通 `sales_fixture.json` は変更しない。v0.6 専用 fixture は 576 行、2026 年税抜売上は 2025 年比約 8% 増である。
 
 ## 4. ビルドスクリプトの再利用マップ
 
@@ -150,11 +168,17 @@ v0.6 でも `finalize_v03_ooxml.sanitize_package` を再利用する。
 | 業種スライサー | 2 項目、8 PT 接続 |
 | 商品スライサー | 8 項目、8 PT 接続 |
 | タイムライン | 6 PT 接続、PT-07 / PT-08 は非接続 |
-| KPI 売上 | 47,492,700 円 |
-| KPI 差額 | 18,852,426 円 |
-| KPI 差額率 | 0.3969541845378342 |
-| KPI 前年比 | -0.011131169147547193 |
+| 2025 年売上 / 原価 | 48,027,300 円 / 28,999,224 円 |
+| 2026 年売上 / 原価 | 51,869,100 円 / 31,729,100 円 |
+| KPI 売上 | 51,869,100 円 |
+| KPI 差額 | 20,140,000 円 |
+| KPI 差額率 | 0.38828512544077304 |
+| KPI 前年比 | 0.07999200454741362 |
+| 2026 年売上成長 | 2025 年比 7.9992% |
 | ヒートマップ | 8 商品 × 24 か月、192 セル |
+| 年別ヒートマップ | 2025のみ / 2026のみ / 両年の選択で追従 |
+| コメント図形 | 74 件、四角形、自動サイズ |
+| グラフ範囲 | 4 個すべて Q 列内 |
 | スパークライン | 8 本、列種別 |
 | 既存計算 | 利益 72,000 円、税込見積 176,000 円 |
 | メモ | 74 件 |
@@ -171,6 +195,9 @@ v0.6 でも `finalize_v03_ooxml.sanitize_package` を再利用する。
 | ヒートマップの 3 状態が崩れる | 数式と条件付き書式の優先度 | `ISERROR`、`COUNTIFS`、`StopIfTrue` を確認する |
 | 0 円が空欄になる | 数値 0 と文字列の扱い | `0"万円"` と条件付き書式を確認する |
 | データなしが空欄になる | `COUNTIFS` の列名 | `SalesHistory[商品]`、`SalesHistory[年月]` を確認する |
+| 2025 年のヒートマップが空欄 | 初期タイムラインは2026年 | タイムラインで2025年または全期間を選択し、年別テストを実行する |
+| コメント図形で文字切れ | 図形種別、自動サイズ | `normalize_comment_shapes`、矩形設定、本文一致検査を確認する |
+| グラフがQ列を超える | ヒートマップが列幅を変えた後の位置 | `fit_charts_to_grid` を実行し、4形状の右端チェックを確認する |
 | 印刷で文字が切れる | 用紙、余白、倍率 | 横向き 1 ページ、改ページプレビューで確認する |
 | ファイルが重い | 画像、グラフ、条件付き書式の範囲 | 画像を減らし、適用範囲を 192 セルに限定する |
 
