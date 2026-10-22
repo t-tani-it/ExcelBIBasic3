@@ -115,6 +115,7 @@ v0.6 のビルドでは、`finalize_v03_ooxml.py` の定数を直接書き換え
 | ローカルフォルダ | `ExcelBIBasic_DeepSeek_V4.1` へ変更済み |
 | GitHub リポジトリ | `t-tani-it/ExcelBIBasic_DeepSeek_V4.1` へ変更済み |
 | Git remote | 新 URL へ更新済み |
+| 旧 GitHub URL | 新 URL へリダイレクトすることを `git ls-remote` で確認済み |
 | `.venv` | Python 3.11.15 で再作成、pywin32 312 導入済み |
 | v0.4 検証 | 173 / 173 合格 |
 | v0.5 検証 | 233 / 233 合格 |
