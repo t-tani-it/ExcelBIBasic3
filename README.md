@@ -1,6 +1,12 @@
-# 見積・原価・利益シミュレーター v0.4 / v0.5 デザインバリアント B
+# ExcelBIBasic_DeepSeek_V4.1 - 見積・原価・利益シミュレーター v0.4 / v0.5 / v0.6設計
 
-操作評価用プロトタイプ。v0.4 は方式 A、v0.5 は別 UI のデザインバリアント B である。販売可能判定は未実施である。
+操作評価用プロトタイプ。v0.4 は方式 A、v0.5 は別 UI のデザインバリアント B、v0.6 は設計中のデザイン C である。販売可能判定は未実施である。
+
+- 旧称: `ExcelBIBasic3`（2026-10-22 に改名）
+- リポジトリ: https://github.com/t-tani-it/ExcelBIBasic_DeepSeek_V4.1
+- 改名の詳細: `docs/project_rename.md`
+- 次モデル向け入口: `docs/next_model/START_HERE.md`
+- 依存関係: `requirements.txt`（pywin32 312）
 
 ## v0.4 の実装状況
 
@@ -65,13 +71,37 @@ v0.5 実機検証は 233 件すべて合格する。検証結果は `windows_v05
 
 設計、検証、既知の問題、変更履歴、引き継ぎは `docs/variant_design_b/` を参照する。設計差は配色、KPI カード、グラフ構成の 3 項目である。外部 UI の採用はなく、レイアウトは自作である。
 
+## v0.6 デザイン C（設計中）
+
+v0.5 の機能と 233 / 233 の検証資産を維持し、文字階層、余白、グラフ適合性、印刷・性能の証拠を改善する別ブックである。v0.4 を出発点とし、v0.5 を視覚参照とする。
+
+| 項目 | 状態 | 内容 |
+|---|---|---|
+| 成果物 | 設計中 | `prototype_v06_design_c.xlsx` |
+| デザイン方向 | 設計中 | Warm Slate Editorial |
+| 外部 UI | 採用方針 | 3〜5 件を参照し、良い要素を Excel で再現する |
+| グラフ | 設計中 | 月別売上、前年比較、商品別横棒、業種構成 100% 積み上げ横棒 |
+| 文字階層 | 設計中 | KPI 30〜32 pt、ラベル 10 pt、補足 9 pt |
+| ヒートマップ | 維持 | 8 商品 × 24 か月、3 状態、凡例を上部へ移動 |
+| 受入 | 未達 | 233 / 233、デザイン 20 / 24 以上、重大項目に 0 がないこと |
+| 手動 UI・実印刷・性能 | 未検証 | v0.6 ビルド後に確認する |
+
+- 設計書: `docs/variant_design_c/design_spec.md`
+- 次モデル入口: `docs/next_model/START_HERE.md`
+- デザインブリーフ: `docs/next_model/design_brief.md`
+- 受入マトリクス: `docs/next_model/acceptance_matrix.md`
+- 外部 UI 参照ログ: `docs/next_model/ui_reference_log.md`
+- 視覚参照画像: `docs/next_model/reference_v05.png`
+
 ## 別セッション向けデザインバリアント
 
 - v0.4 と同一機能のまま UI を変えた別ブックを作る要求は `docs/variant_requirements.md` を参照する。
 - 文書の優先順位は `docs/document_index.md`、v0.4 の現行仕様は `docs/v0.4_method_a_addendum.md` を参照する。
 - 別モデルは `prototype_v04.xlsx` を複製し、既存の見積・原価・利益シートを維持する。
 - `売上分析` シートは削除し、同名のシートを 0 から再作成する。
-- 優れた UI の採用を許容する。固定要件を壊さず、採用元と理由を設計書へ記録する。
+- 優れた UI の採用を許容する。固定要件を壊さず、採用元、採用理由、ライセンスを設計書へ記録する。
+- v0.6 以降は外部のデザイン、テンプレート、配色、アイコン、グラフ配置を積極的に参照する。参照元は 3〜5 件とし、`docs/next_model/ui_reference_log.md` に URL、ライセンス、採用要素、改変内容を記録する。
+- 外部 UI の良い要素は、Excel のセル、図形、グラフ、スライサー、条件付き書式で再現する。ブック内に外部リンク、外部画像、外部フォントを埋め込まない。
 - v0.4 のブックと文書は上書きしない。成果物は別ファイルとする。
 - v0.4 のヒートマップは `IFERROR` で空欄化しており、3 状態の完全な区別は未実装である。バリアントでは 3 状態の区別を必須とする。
 
@@ -175,7 +205,7 @@ v0.2 以前の Node 工程（`build.mjs`、`enhance.mjs`、`finalize_ooxml.py`�
 |---|---|---|
 | 仮想環境の作成 | `python -m venv .venv` | `python -m venv .venv` |
 | 仮想環境の有効化 | `.\.venv\Scripts\Activate.ps1` | `.\.venv\Scripts\activate.bat` |
-| pywin32 の導入 | `python -m pip install pywin32` | `python -m pip install pywin32` |
+| 依存関係の導入 | `python -m pip install -r requirements.txt` | `python -m pip install -r requirements.txt` |
 | 有効化の確認 | `python -c "import win32com.client; print('OK')"` | `python -c "import win32com.client; print('OK')"` |
 
 PowerShell で実行ポリシーにより有効化できない場合は、`Set-ExecutionPolicy -Scope Process Bypass` を実行してから有効化する。
