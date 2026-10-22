@@ -23,3 +23,6 @@ windows_*_results.json
 
 # v0.5 の検証結果は成果物として保持する
 !windows_v05_results.json
+
+# v0.6 の検証結果は成果物として保持する
+!windows_v06_results.json

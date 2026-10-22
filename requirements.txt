@@ -1,0 +1,4 @@
+# ExcelBIBasic_DeepSeek_V4.1 - Python dependencies
+# Purpose: reproduce the Windows Excel COM build and verification environment.
+# Note: Excel itself is a prerequisite and is not installed by pip.
+pywin32==312

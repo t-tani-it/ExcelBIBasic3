@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "name": "ExcelBIBasic_DeepSeek_V4.1 design tokens",
+    "version": "RevA",
+    "date": "2026-10-22",
+    "baseline": "v0.5 design variant B",
+    "target": "v0.6 design variant C",
+    "notes": [
+      "v0.5 の色を基準に、v0.6 で文字階層と余白を強める。",
+      "外部 UI の色を採用する場合は ui_reference_log.md に出典とライセンスを記録する。",
+      "色だけで状態を伝えない。"
+    ]
+  },
+  "palette": {
+    "navy": "#1F2A44",
+    "navySoft": "#34405C",
+    "coral": "#D9644A",
+    "amber": "#E9A23B",
+    "sand": "#E8DCCB",
+    "paper": "#F7F3EE",
+    "white": "#FFFFFF",
+    "text": "#2D3442",
+    "gray": "#6E7480",
+    "border": "#D6CDC1",
+    "lightPeach": "#F6E3D8",
+    "mutedBlue": "#5B7C99",
+    "positive": "#2F6B5F",
+    "negative": "#B84A3A"
+  },
+  "semantic": {
+    "background": "paper",
+    "surface": "white",
+    "textPrimary": "text",
+    "textSecondary": "gray",
+    "border": "border",
+    "accentPrimary": "coral",
+    "accentSecondary": "amber",
+    "accentMuted": "mutedBlue",
+    "filterRail": "navy",
+    "filterRailText": "sand",
+    "kpiSales": "coral",
+    "kpiDifference": "amber",
+    "kpiRate": "mutedBlue",
+    "kpiYoY": "navySoft",
+    "positive": "positive",
+    "negative": "negative"
+  },
+  "typography": {
+    "family": "Yu Gothic UI",
+    "fallback": "Meiryo",
+    "sizesPt": {
+      "display": 32,
+      "title": 26,
+      "section": 13,
+      "kpi": 30,
+      "kpiLabel": 10,
+      "kpiNote": 9,
+      "body": 10,
+      "caption": 9,
+      "micro": 8
+    },
+    "weights": {
+      "regular": 400,
+      "bold": 700
+    },
+    "maxSizesPerRegion": 3
+  },
+  "spacingPx": {
+    "xxs": 4,
+    "xs": 8,
+    "sm": 12,
+    "md": 16,
+    "lg": 24,
+    "xl": 32
+  },
+  "grid": {
+    "columns": 12,
+    "gutterPx": 8,
+    "outerMarginPx": 16,
+    "cardPaddingPx": 14,
+    "sectionGapPx": 28
+  },
+  "layout": {
+    "headerRows": "1-4",
+    "filterRail": "A5:C40",
+    "kpiArea": "D5:Q13",
+    "dataNote": "L5:Q13",
+    "chartTopLeft": "D15:J30",
+    "chartTopRight": "K15:Q30",
+    "chartBottomLeft": "D32:J48",
+    "chartBottomRight": "K32:Q48",
+    "heatmap": "A50:Z60",
+    "notes": "A62:Z64"
+  },
+  "charts": {
+    "series": [
+      "navy",
+      "coral",
+      "amber",
+      "mutedBlue",
+      "positive"
+    ],
+    "background": "white",
+    "plotBackground": "white",
+    "gridline": "#E6E0D8",
+    "axis": "gray",
+    "title": "navy",
+    "fontSizePt": 9,
+    "lineWidthPt": 1.25,
+    "markerSizePt": 5,
+    "showFieldButtons": false,
+    "preferredTypes": {
+      "trend": "line",
+      "comparison": "line",
+      "ranking": "bar",
+      "composition": "100% stacked bar"
+    },
+    "avoid": [
+      "two-category pie",
+      "dual-axis clutter",
+      "unlabeled series",
+      "3D charts"
+    ]
+  },
+  "heatmap": {
+    "range": "B51:Y58",
+    "rows": 8,
+    "columns": 24,
+    "states": {
+      "zero": {
+        "text": "0万円",
+        "fill": "lightPeach"
+      },
+      "noData": {
+        "text": "－",
+        "fill": "sand"
+      },
+      "outOfRange": {
+        "text": "",
+        "fill": null
+      }
+    },
+    "scale": [
+      "lightPeach",
+      "amber",
+      "coral"
+    ],
+    "legendPosition": "above-heatmap",
+    "useIfError": false
+  },
+  "numberFormats": {
+    "yen": "#,##0",
+    "manYen": "0\"万円\"",
+    "percent": "0.0%",
+    "ratio": "0.000"
+  },
+  "print": {
+    "orientation": "landscape",
+    "paper": "A4",
+    "fitToWidth": 1,
+    "fitToHeight": 1,
+    "margins": {
+      "top": 0.4,
+      "bottom": 0.4,
+      "left": 0.4,
+      "right": 0.4
+    },
+    "footer": "&L ExcelBIBasic_DeepSeek_V4.1 &C &A &R Page &P / &N",
+    "verifyRealPrint": true
+  },
+  "accessibility": {
+    "minTextContrastRatio": 4.5,
+    "stateMustNotRelyOnColorOnly": true,
+    "minFontSizePt": 8,
+    "checkAtZoom": [
+      100,
+      125
+    ]
+  },
+  "externalUi": {
+    "maxReferences": 5,
+    "licenseRequired": true,
+    "commitReferenceImages": false,
+    "embedExternalLinks": false,
+    "embedExternalFonts": false,
+    "embedIconFonts": false,
+    "preferNativeExcel": true
+  }
+}

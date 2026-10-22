@@ -259,3 +259,30 @@ D-24 により方式 A を採用したため、U-01（CUBE 式）、U-02（タ�
 | 既知の制約 | タイムラインの `TimelineStyleLight2` 設定は COM エラーとなり、`TimeSlicerStyleLight1` へフォールバックする。手動 UI、実印刷、性能は未検証である |
 | 状態 | 確定（v0.5 実装済み） |
 
+## D-28 外部 UI 参照と Excel 表現（2026-10-22）
+
+| 項目 | 内容 |
+|---|---|
+| 決定 | v0.6 デザイン C では、外部のデザイン、テンプレート、配色、アイコン、グラフ配置を積極的に参照する |
+| 決定 | 良い要素は Excel のセル、図形、グラフ、スライサー、条件付き書式で再現する。外部画像の貼り付け、外部リンク、外部フォント、外部アイコンフォントの埋め込みは行わない |
+| 決定 | 参照元は 3〜5 件とする。出典、URL、ライセンス、採用要素、Excel 実装、改変内容を `docs/next_model/ui_reference_log.md` と `docs/variant_design_c/design_spec.md` に記録する |
+| 決定 | ライセンス不明の素材、有料テンプレート、ロゴ、再配布不可素材は使用しない。参考画像そのものを public リポジトリへ保存しない |
+| 候補 | IBM Carbon Design System（Apache-2.0、グリッドと余白）、Financial Times Visual Vocabulary（MIT、グラフ選択）、Microsoft Fluent UI System Icons（MIT、アイコン候補）。Lucide（ISC）と Material Symbols（Apache-2.0）はアイコンスタイルの混在を避けるため不採用 |
+| 根拠 | v0.5 の文字階層、グラフ適合性、余白、印刷・性能の証拠を改善し、v0.5 を超えるデザインを短時間で作るため |
+| 影響 | D-27 の「外部 UI の採用なし」は v0.5 限定である。v0.6 は D-28 に従う。v0.4 / v0.5 のブックと文書は変更しない |
+| 状態 | 確定 |
+
+## D-29 プロジェクト改名（2026-10-22）
+
+| 項目 | 内容 |
+|---|---|
+| 決定 | プロジェクト名を `ExcelBIBasic3` から `ExcelBIBasic_DeepSeek_V4.1` へ変更する |
+| 決定 | ローカルフォルダと GitHub リポジトリを新名にする。GitHub の旧 URL は新 URL へリダイレクトさせる |
+| 決定 | 新名を反映するのは入口文書（`AGENTS.md`、`README.md`、`docs/document_index.md`、`docs/next_model/START_HERE.md`）と `docs/project_rename.md` に限る |
+| 決定 | 過去の RevA 文書、v0.4 / v0.5 のブック、v0.5 の設計・検証文書、v0.3 / v0.4 検証の作成者期待値は旧名のまま歴史として残す |
+| 決定 | v0.4 / v0.5 のテストコードは変更しない。新規 v0.6 のみ作成者 `ExcelBIBasic_DeepSeek_V4.1` を使用する |
+| 決定 | Git 履歴は書き換えない。旧名で新しいリポジトリを作成しない |
+| 根拠 | 改名の影響を最小化し、検証済み資産と公開履歴を壊さないため |
+| 影響 | `.venv` はフォルダ改名後に再作成する。OpenCode セッションは新ディレクトリへ移動する。v0.4 / v0.5 の再検証を実行する |
+| 状態 | 確定 |
+
