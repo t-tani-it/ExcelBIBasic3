@@ -1,0 +1,1707 @@
+{
+  "workbook": "prototype_v06_design_c.xlsx",
+  "total": 259,
+  "passed": 259,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "sheet count",
+      "expected": 13,
+      "actual": 13,
+      "ok": true
+    },
+    {
+      "name": "dashboard index",
+      "expected": 10,
+      "actual": 10,
+      "ok": true
+    },
+    {
+      "name": "dashboard visible",
+      "expected": -1,
+      "actual": -1,
+      "ok": true
+    },
+    {
+      "name": "control hidden",
+      "expected": 0,
+      "actual": 0,
+      "ok": true
+    },
+    {
+      "name": "active sheet",
+      "expected": "売上分析",
+      "actual": "売上分析",
+      "ok": true
+    },
+    {
+      "name": "dashboard before product master",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "required sheets",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "SalesHistory range",
+      "expected": "$A$4:$L$580",
+      "actual": "$A$4:$L$580",
+      "ok": true
+    },
+    {
+      "name": "SalesHistory rows",
+      "expected": 576,
+      "actual": 576,
+      "ok": true
+    },
+    {
+      "name": "SalesHistory columns",
+      "expected": 12,
+      "actual": 12,
+      "ok": true
+    },
+    {
+      "name": "SalesHistory totals",
+      "expected": false,
+      "actual": false,
+      "ok": true
+    },
+    {
+      "name": "SalesHistory headers",
+      "expected": [
+        "日付",
+        "業種",
+        "商品",
+        "数量",
+        "税抜単価",
+        "税抜売上",
+        "計上原価",
+        "計上原価控除後差額",
+        "データ区分",
+        "年月",
+        "年",
+        "月"
+      ],
+      "actual": [
+        "日付",
+        "業種",
+        "商品",
+        "数量",
+        "税抜単価",
+        "税抜売上",
+        "計上原価",
+        "計上原価控除後差額",
+        "データ区分",
+        "年月",
+        "年",
+        "月"
+      ],
+      "ok": true
+    },
+    {
+      "name": "SalesHistory helper 年月",
+      "expected": "2025-01",
+      "actual": "2025-01",
+      "ok": true
+    },
+    {
+      "name": "SalesHistory helper 年",
+      "expected": 2025,
+      "actual": 2025.0,
+      "ok": true
+    },
+    {
+      "name": "SalesHistory helper 月",
+      "expected": 1,
+      "actual": 1.0,
+      "ok": true
+    },
+    {
+      "name": "SalesHistory matches v0.6 fixture",
+      "expected": true,
+      "actual": {
+        "mismatch_count": 0,
+        "sample_rows": []
+      },
+      "ok": true
+    },
+    {
+      "name": "fixture 2025 sales",
+      "expected": 48027300,
+      "actual": 48027300,
+      "ok": true
+    },
+    {
+      "name": "fixture 2025 cost",
+      "expected": 28999224,
+      "actual": 28999224,
+      "ok": true
+    },
+    {
+      "name": "fixture 2026 sales",
+      "expected": 51869100,
+      "actual": 51869100,
+      "ok": true
+    },
+    {
+      "name": "fixture 2026 cost",
+      "expected": 31729100,
+      "actual": 31729100,
+      "ok": true
+    },
+    {
+      "name": "fixture annual sales growth",
+      "expected": 0.08,
+      "actual": 0.07999200454741362,
+      "ok": true
+    },
+    {
+      "name": "fixture monthly profiles differ",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "fixture product mix differs",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "ProductMaster range",
+      "expected": "$A$4:$E$12",
+      "actual": "$A$4:$E$12",
+      "ok": true
+    },
+    {
+      "name": "ProductMaster rows",
+      "expected": 8,
+      "actual": 8,
+      "ok": true
+    },
+    {
+      "name": "ProductMaster columns",
+      "expected": 5,
+      "actual": 5,
+      "ok": true
+    },
+    {
+      "name": "ProductMaster headers",
+      "expected": [
+        "商品 ID",
+        "商品名",
+        "業種",
+        "表示順",
+        "有効"
+      ],
+      "actual": [
+        "商品 ID",
+        "商品名",
+        "業種",
+        "表示順",
+        "有効"
+      ],
+      "ok": true
+    },
+    {
+      "name": "pivot cache count",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "pivot table count",
+      "expected": 8,
+      "actual": 8,
+      "ok": true
+    },
+    {
+      "name": "pivot names",
+      "expected": [
+        "PT-01",
+        "PT-02",
+        "PT-03",
+        "PT-04",
+        "PT-05",
+        "PT-06",
+        "PT-07",
+        "PT-08"
+      ],
+      "actual": [
+        "PT-01",
+        "PT-02",
+        "PT-03",
+        "PT-04",
+        "PT-05",
+        "PT-06",
+        "PT-07",
+        "PT-08"
+      ],
+      "ok": true
+    },
+    {
+      "name": "PT-01 range",
+      "expected": "$A$2:$B$4",
+      "actual": "$A$2:$B$4",
+      "ok": true
+    },
+    {
+      "name": "PT-01 cache index",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "PT-02 range",
+      "expected": "$A$12:$B$20",
+      "actual": "$A$12:$B$20",
+      "ok": true
+    },
+    {
+      "name": "PT-02 cache index",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "PT-03 range",
+      "expected": "$A$26:$C$38",
+      "actual": "$A$26:$C$38",
+      "ok": true
+    },
+    {
+      "name": "PT-03 cache index",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "PT-04 range",
+      "expected": "$A$56:$C$66",
+      "actual": "$A$56:$C$66",
+      "ok": true
+    },
+    {
+      "name": "PT-04 cache index",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "PT-05 range",
+      "expected": "$H$2:$T$11",
+      "actual": "$H$2:$T$11",
+      "ok": true
+    },
+    {
+      "name": "PT-05 cache index",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "PT-06 range",
+      "expected": "$H$14:$I$15",
+      "actual": "$H$14:$I$15",
+      "ok": true
+    },
+    {
+      "name": "PT-06 cache index",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "PT-07 range",
+      "expected": "$H$20:$I$22",
+      "actual": "$H$20:$I$22",
+      "ok": true
+    },
+    {
+      "name": "PT-07 cache index",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "PT-08 range",
+      "expected": "$H$28:$J$41",
+      "actual": "$H$28:$J$41",
+      "ok": true
+    },
+    {
+      "name": "PT-08 cache index",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "pivot source is SalesHistory",
+      "expected": true,
+      "actual": "SalesHistory",
+      "ok": true
+    },
+    {
+      "name": "slicer cache count",
+      "expected": 3,
+      "actual": 3,
+      "ok": true
+    },
+    {
+      "name": "slicer cache names",
+      "expected": [
+        "SL_商品_C",
+        "SL_業種_C",
+        "TL_日付_C"
+      ],
+      "actual": [
+        "SL_商品_C",
+        "SL_業種_C",
+        "TL_日付_C"
+      ],
+      "ok": true
+    },
+    {
+      "name": "old slicer caches absent",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "industry source field",
+      "expected": "業種",
+      "actual": "業種",
+      "ok": true
+    },
+    {
+      "name": "product source field",
+      "expected": "商品",
+      "actual": "商品",
+      "ok": true
+    },
+    {
+      "name": "timeline source field",
+      "expected": "日付",
+      "actual": "日付",
+      "ok": true
+    },
+    {
+      "name": "industry PT connections",
+      "expected": 8,
+      "actual": 8,
+      "ok": true
+    },
+    {
+      "name": "product PT connections",
+      "expected": 8,
+      "actual": 8,
+      "ok": true
+    },
+    {
+      "name": "timeline PT connections",
+      "expected": 6,
+      "actual": 6,
+      "ok": true
+    },
+    {
+      "name": "industry items",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "product items",
+      "expected": 8,
+      "actual": 8,
+      "ok": true
+    },
+    {
+      "name": "timeline current-period PTs",
+      "expected": [
+        "PT-01",
+        "PT-02",
+        "PT-03",
+        "PT-04",
+        "PT-05",
+        "PT-06"
+      ],
+      "actual": [
+        "PT-01",
+        "PT-02",
+        "PT-03",
+        "PT-04",
+        "PT-05",
+        "PT-06"
+      ],
+      "ok": true
+    },
+    {
+      "name": "timeline excludes PT-07",
+      "expected": true,
+      "actual": [
+        "PT-01",
+        "PT-02",
+        "PT-03",
+        "PT-04",
+        "PT-05",
+        "PT-06"
+      ],
+      "ok": true
+    },
+    {
+      "name": "timeline excludes PT-08",
+      "expected": true,
+      "actual": [
+        "PT-01",
+        "PT-02",
+        "PT-03",
+        "PT-04",
+        "PT-05",
+        "PT-06"
+      ],
+      "ok": true
+    },
+    {
+      "name": "timeline start",
+      "expected": "2026-01-01",
+      "actual": "2026-01-01",
+      "ok": true
+    },
+    {
+      "name": "timeline end",
+      "expected": "2026-12-31",
+      "actual": "2026-12-31",
+      "ok": true
+    },
+    {
+      "name": "SL_業種_C slicer shape count",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "SL_業種_C parent sheet",
+      "expected": "売上分析",
+      "actual": "売上分析",
+      "ok": true
+    },
+    {
+      "name": "SL_商品_C slicer shape count",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "SL_商品_C parent sheet",
+      "expected": "売上分析",
+      "actual": "売上分析",
+      "ok": true
+    },
+    {
+      "name": "TL_日付_C slicer shape count",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "TL_日付_C parent sheet",
+      "expected": "売上分析",
+      "actual": "売上分析",
+      "ok": true
+    },
+    {
+      "name": "slicer rail left",
+      "expected": true,
+      "actual": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "ok": true
+    },
+    {
+      "name": "slicer rail stacked",
+      "expected": true,
+      "actual": [
+        118.0,
+        233.5,
+        435.25
+      ],
+      "ok": true
+    },
+    {
+      "name": "slicer rail fits",
+      "expected": true,
+      "actual": [
+        4.0,
+        225.0,
+        287.25
+      ],
+      "ok": true
+    },
+    {
+      "name": "industry slicer style",
+      "expected": "SlicerStyleLight2",
+      "actual": "SlicerStyleLight2",
+      "ok": true
+    },
+    {
+      "name": "product slicer style",
+      "expected": "SlicerStyleLight2",
+      "actual": "SlicerStyleLight2",
+      "ok": true
+    },
+    {
+      "name": "timeline slicer style",
+      "expected": "TimeSlicerStyleLight1",
+      "actual": "TimeSlicerStyleLight1",
+      "ok": true
+    },
+    {
+      "name": "KPI sales",
+      "expected": 51869100,
+      "actual": 51869100.0,
+      "ok": true
+    },
+    {
+      "name": "KPI diff",
+      "expected": 20140000,
+      "actual": 20140000.0,
+      "ok": true
+    },
+    {
+      "name": "KPI rate",
+      "expected": 0.38828512544077304,
+      "actual": 0.38828512544077304,
+      "ok": true
+    },
+    {
+      "name": "KPI yoy",
+      "expected": 0.07999200454741362,
+      "actual": 0.07999200454741362,
+      "ok": true
+    },
+    {
+      "name": "KPI sales formula",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "KPI diff formula",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "KPI rate formula",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "KPI yoy formula",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "KPI sales label",
+      "expected": "税抜売上（円）",
+      "actual": "税抜売上（円）",
+      "ok": true
+    },
+    {
+      "name": "KPI diff label",
+      "expected": "差額（円）",
+      "actual": "差額（円）",
+      "ok": true
+    },
+    {
+      "name": "KPI rate label",
+      "expected": "差額率",
+      "actual": "差額率",
+      "ok": true
+    },
+    {
+      "name": "KPI yoy label",
+      "expected": "前年比",
+      "actual": "前年比",
+      "ok": true
+    },
+    {
+      "name": "KPI sales format",
+      "expected": "#,##0",
+      "actual": "#,##0",
+      "ok": true
+    },
+    {
+      "name": "KPI rate format",
+      "expected": "0.0%",
+      "actual": "0.0%",
+      "ok": true
+    },
+    {
+      "name": "KPI sales merge",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "KPI diff merge",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "KPI cards 2x2",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "KPI accent 1",
+      "expected": 4875481,
+      "actual": 4875481.0,
+      "ok": true
+    },
+    {
+      "name": "KPI accent 2",
+      "expected": 3908329,
+      "actual": 3908329.0,
+      "ok": true
+    },
+    {
+      "name": "KPI accent 3",
+      "expected": 10058843,
+      "actual": 10058843.0,
+      "ok": true
+    },
+    {
+      "name": "KPI accent 4",
+      "expected": 6045748,
+      "actual": 6045748.0,
+      "ok": true
+    },
+    {
+      "name": "KPI sales font size",
+      "expected": 30,
+      "actual": 30.0,
+      "ok": true
+    },
+    {
+      "name": "KPI diff font size",
+      "expected": 30,
+      "actual": 30.0,
+      "ok": true
+    },
+    {
+      "name": "KPI rate font size",
+      "expected": 30,
+      "actual": 30.0,
+      "ok": true
+    },
+    {
+      "name": "KPI yoy font size",
+      "expected": 30,
+      "actual": 30.0,
+      "ok": true
+    },
+    {
+      "name": "title",
+      "expected": "売上分析",
+      "actual": "売上分析",
+      "ok": true
+    },
+    {
+      "name": "title size",
+      "expected": 26,
+      "actual": 26.0,
+      "ok": true
+    },
+    {
+      "name": "subtitle",
+      "expected": "数字で読む、商品と季節の動き",
+      "actual": "数字で読む、商品と季節の動き",
+      "ok": true
+    },
+    {
+      "name": "design label",
+      "expected": "DESIGN C / WARM SLATE",
+      "actual": "DESIGN C / WARM SLATE",
+      "ok": true
+    },
+    {
+      "name": "badge",
+      "expected": "2025-2026 / 架空データ",
+      "actual": "2025-2026 / 架空データ",
+      "ok": true
+    },
+    {
+      "name": "accent line",
+      "expected": 4875481,
+      "actual": 4875481.0,
+      "ok": true
+    },
+    {
+      "name": "sidebar",
+      "expected": 4467231,
+      "actual": 4467231.0,
+      "ok": true
+    },
+    {
+      "name": "sidebar title",
+      "expected": "FILTERS",
+      "actual": "FILTERS",
+      "ok": true
+    },
+    {
+      "name": "sidebar industry label",
+      "expected": "業種",
+      "actual": "業種",
+      "ok": true
+    },
+    {
+      "name": "sidebar product label",
+      "expected": "商品",
+      "actual": "商品",
+      "ok": true
+    },
+    {
+      "name": "sidebar period label",
+      "expected": "期間",
+      "actual": "期間",
+      "ok": true
+    },
+    {
+      "name": "sidebar note",
+      "expected": true,
+      "actual": "前年比・前年比較は\nタイムライン非連動。\nスライサーは全PTに接続。\n商品マスタはPT未接続。",
+      "ok": true
+    },
+    {
+      "name": "insight strip",
+      "expected": "DATA NOTE",
+      "actual": "DATA NOTE",
+      "ok": true
+    },
+    {
+      "name": "insight title",
+      "expected": "読み取りのポイント",
+      "actual": "読み取りのポイント",
+      "ok": true
+    },
+    {
+      "name": "insight fill",
+      "expected": 13360360,
+      "actual": 13360360.0,
+      "ok": true
+    },
+    {
+      "name": "insight body",
+      "expected": true,
+      "actual": "1. 差額 = 売上 - 計上原価\n2. 前年比 = 2026年 ÷ 2025年 - 1\n3. タイムラインは前年比・前年比較に非連動\n4. 商品マスタは方式AのためPT未接続",
+      "ok": true
+    },
+    {
+      "name": "tab color",
+      "expected": 4875481,
+      "actual": 4875481,
+      "ok": true
+    },
+    {
+      "name": "dashboard shape count",
+      "expected": 7,
+      "actual": 7,
+      "ok": true
+    },
+    {
+      "name": "dashboard chart count",
+      "expected": 4,
+      "actual": 4,
+      "ok": true
+    },
+    {
+      "name": "PG-C01 chart type",
+      "expected": 65,
+      "actual": 65,
+      "ok": true
+    },
+    {
+      "name": "PG-C01 title",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "PG-C01 field buttons hidden",
+      "expected": false,
+      "actual": false,
+      "ok": true
+    },
+    {
+      "name": "PG-C02 chart type",
+      "expected": 65,
+      "actual": 65,
+      "ok": true
+    },
+    {
+      "name": "PG-C02 title",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "PG-C02 field buttons hidden",
+      "expected": false,
+      "actual": false,
+      "ok": true
+    },
+    {
+      "name": "PG-C03 chart type",
+      "expected": 57,
+      "actual": 57,
+      "ok": true
+    },
+    {
+      "name": "PG-C03 title",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "PG-C03 field buttons hidden",
+      "expected": false,
+      "actual": false,
+      "ok": true
+    },
+    {
+      "name": "PG-C04 chart type",
+      "expected": 59,
+      "actual": 59,
+      "ok": true
+    },
+    {
+      "name": "PG-C04 title",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "PG-C04 field buttons hidden",
+      "expected": false,
+      "actual": false,
+      "ok": true
+    },
+    {
+      "name": "PG-C01 series",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "PG-C02 series",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "PG-C03 series",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "PG-C04 series",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "PG-C01 title text",
+      "expected": "月別売上（万円）",
+      "actual": "月別売上（万円）",
+      "ok": true
+    },
+    {
+      "name": "PG-C02 title text",
+      "expected": "2025 年と 2026 年の比較（万円）",
+      "actual": "2025 年と 2026 年の比較（万円）",
+      "ok": true
+    },
+    {
+      "name": "PG-C03 title text",
+      "expected": "商品別売上（万円）",
+      "actual": "商品別売上（万円）",
+      "ok": true
+    },
+    {
+      "name": "PG-C04 title text",
+      "expected": "業種構成（%）",
+      "actual": "業種構成（%）",
+      "ok": true
+    },
+    {
+      "name": "PG-C02 axis title",
+      "expected": "月",
+      "actual": "月",
+      "ok": true
+    },
+    {
+      "name": "PG-C01 left of charts",
+      "expected": true,
+      "actual": [
+        293.25,
+        781.5,
+        293.25,
+        781.5
+      ],
+      "ok": true
+    },
+    {
+      "name": "PG-C01 above PG-C03",
+      "expected": true,
+      "actual": [
+        257.25,
+        567.0
+      ],
+      "ok": true
+    },
+    {
+      "name": "PG-C01 fits through Q column",
+      "expected": true,
+      "actual": {
+        "right": 769.5,
+        "limit": 775.5
+      },
+      "ok": true
+    },
+    {
+      "name": "PG-C02 fits through Q column",
+      "expected": true,
+      "actual": {
+        "right": 1257.75,
+        "limit": 1263.75
+      },
+      "ok": true
+    },
+    {
+      "name": "PG-C03 fits through Q column",
+      "expected": true,
+      "actual": {
+        "right": 769.5,
+        "limit": 775.5
+      },
+      "ok": true
+    },
+    {
+      "name": "PG-C04 fits through Q column",
+      "expected": true,
+      "actual": {
+        "right": 1257.75,
+        "limit": 1263.75
+      },
+      "ok": true
+    },
+    {
+      "name": "existing 採算 charts",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "heatmap title",
+      "expected": "商品×月ヒートマップ（万円）",
+      "actual": "商品×月ヒートマップ（万円）",
+      "ok": true
+    },
+    {
+      "name": "heatmap header 1",
+      "expected": "2025-01",
+      "actual": "2025-01",
+      "ok": true
+    },
+    {
+      "name": "heatmap header 13",
+      "expected": "2026-01",
+      "actual": "2026-01",
+      "ok": true
+    },
+    {
+      "name": "heatmap header 24",
+      "expected": "2026-12",
+      "actual": "2026-12",
+      "ok": true
+    },
+    {
+      "name": "heatmap sparkline header",
+      "expected": "推移",
+      "actual": "推移",
+      "ok": true
+    },
+    {
+      "name": "heatmap product 1",
+      "expected": "テーブル",
+      "actual": "テーブル",
+      "ok": true
+    },
+    {
+      "name": "heatmap product 8",
+      "expected": "季節の果物",
+      "actual": "季節の果物",
+      "ok": true
+    },
+    {
+      "name": "heatmap formula cells",
+      "expected": 192,
+      "actual": 192,
+      "ok": true
+    },
+    {
+      "name": "heatmap IFERROR absent",
+      "expected": 0,
+      "actual": 0,
+      "ok": true
+    },
+    {
+      "name": "heatmap COUNTIFS cells",
+      "expected": 192,
+      "actual": 192,
+      "ok": true
+    },
+    {
+      "name": "heatmap ISERROR cells",
+      "expected": 192,
+      "actual": 192,
+      "ok": true
+    },
+    {
+      "name": "heatmap number format",
+      "expected": 0,
+      "actual": 0,
+      "ok": true
+    },
+    {
+      "name": "heatmap 2025-01 blank",
+      "expected": true,
+      "actual": "",
+      "ok": true
+    },
+    {
+      "name": "fixture heatmap 2025-01 expected",
+      "expected": 155,
+      "actual": 155,
+      "ok": true
+    },
+    {
+      "name": "heatmap 2026-01 value",
+      "expected": 85,
+      "actual": 85.0,
+      "ok": true
+    },
+    {
+      "name": "heatmap 2026-12 value",
+      "expected": 75,
+      "actual": 75.0,
+      "ok": true
+    },
+    {
+      "name": "heatmap 2025 block blank",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "heatmap 2026 block numeric",
+      "expected": 96,
+      "actual": 96,
+      "ok": true
+    },
+    {
+      "name": "heatmap legend 0",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "heatmap legend no data",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "heatmap legend blank",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "heatmap note product master",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "heatmap conditional format count",
+      "expected": 3,
+      "actual": 3,
+      "ok": true
+    },
+    {
+      "name": "blank rule type",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "blank rule formula",
+      "expected": "=B51=\"\"",
+      "actual": "=B51=\"\"",
+      "ok": true
+    },
+    {
+      "name": "blank rule stop",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "blank rule priority",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "blank rule no fill",
+      "expected": -4142,
+      "actual": -4142,
+      "ok": true
+    },
+    {
+      "name": "text rule type",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "text rule formula",
+      "expected": "=ISTEXT(B51)",
+      "actual": "=ISTEXT(B51)",
+      "ok": true
+    },
+    {
+      "name": "text rule stop",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "text rule priority",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "text rule fill",
+      "expected": 13360360,
+      "actual": 13360360.0,
+      "ok": true
+    },
+    {
+      "name": "text rule font contrast",
+      "expected": 4338733,
+      "actual": 4338733.0,
+      "ok": true
+    },
+    {
+      "name": "scale rule type",
+      "expected": 3,
+      "actual": 3,
+      "ok": true
+    },
+    {
+      "name": "scale rule priority",
+      "expected": 3,
+      "actual": 3,
+      "ok": true
+    },
+    {
+      "name": "scale criteria count",
+      "expected": 3,
+      "actual": 3,
+      "ok": true
+    },
+    {
+      "name": "scale low color",
+      "expected": 14214134,
+      "actual": 14214134,
+      "ok": true
+    },
+    {
+      "name": "scale mid type",
+      "expected": 5,
+      "actual": 5,
+      "ok": true
+    },
+    {
+      "name": "scale mid value",
+      "expected": 50,
+      "actual": 50.0,
+      "ok": true
+    },
+    {
+      "name": "scale mid color",
+      "expected": 3908329,
+      "actual": 3908329,
+      "ok": true
+    },
+    {
+      "name": "scale high color",
+      "expected": 4875481,
+      "actual": 4875481,
+      "ok": true
+    },
+    {
+      "name": "sparkline 51 count",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "sparkline 51 type",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "sparkline 51 source",
+      "expected": "B51:Y51",
+      "actual": "B51:Y51",
+      "ok": true
+    },
+    {
+      "name": "sparkline 51 color",
+      "expected": 4875481,
+      "actual": 4875481,
+      "ok": true
+    },
+    {
+      "name": "sparkline 52 count",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "sparkline 52 type",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "sparkline 52 source",
+      "expected": "B52:Y52",
+      "actual": "B52:Y52",
+      "ok": true
+    },
+    {
+      "name": "sparkline 52 color",
+      "expected": 4875481,
+      "actual": 4875481,
+      "ok": true
+    },
+    {
+      "name": "sparkline 53 count",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "sparkline 53 type",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "sparkline 53 source",
+      "expected": "B53:Y53",
+      "actual": "B53:Y53",
+      "ok": true
+    },
+    {
+      "name": "sparkline 53 color",
+      "expected": 4875481,
+      "actual": 4875481,
+      "ok": true
+    },
+    {
+      "name": "sparkline 54 count",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "sparkline 54 type",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "sparkline 54 source",
+      "expected": "B54:Y54",
+      "actual": "B54:Y54",
+      "ok": true
+    },
+    {
+      "name": "sparkline 54 color",
+      "expected": 4875481,
+      "actual": 4875481,
+      "ok": true
+    },
+    {
+      "name": "sparkline 55 count",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "sparkline 55 type",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "sparkline 55 source",
+      "expected": "B55:Y55",
+      "actual": "B55:Y55",
+      "ok": true
+    },
+    {
+      "name": "sparkline 55 color",
+      "expected": 4875481,
+      "actual": 4875481,
+      "ok": true
+    },
+    {
+      "name": "sparkline 56 count",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "sparkline 56 type",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "sparkline 56 source",
+      "expected": "B56:Y56",
+      "actual": "B56:Y56",
+      "ok": true
+    },
+    {
+      "name": "sparkline 56 color",
+      "expected": 4875481,
+      "actual": 4875481,
+      "ok": true
+    },
+    {
+      "name": "sparkline 57 count",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "sparkline 57 type",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "sparkline 57 source",
+      "expected": "B57:Y57",
+      "actual": "B57:Y57",
+      "ok": true
+    },
+    {
+      "name": "sparkline 57 color",
+      "expected": 4875481,
+      "actual": 4875481,
+      "ok": true
+    },
+    {
+      "name": "sparkline 58 count",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "sparkline 58 type",
+      "expected": 2,
+      "actual": 2,
+      "ok": true
+    },
+    {
+      "name": "sparkline 58 source",
+      "expected": "B58:Y58",
+      "actual": "B58:Y58",
+      "ok": true
+    },
+    {
+      "name": "sparkline 58 color",
+      "expected": 4875481,
+      "actual": 4875481,
+      "ok": true
+    },
+    {
+      "name": "print area",
+      "expected": "$A$1:$Z$64",
+      "actual": "$A$1:$Z$64",
+      "ok": true
+    },
+    {
+      "name": "landscape",
+      "expected": 2,
+      "actual": 2.0,
+      "ok": true
+    },
+    {
+      "name": "A4 paper",
+      "expected": 9,
+      "actual": 9.0,
+      "ok": true
+    },
+    {
+      "name": "fit wide",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "fit tall",
+      "expected": 1,
+      "actual": 1,
+      "ok": true
+    },
+    {
+      "name": "zoom off",
+      "expected": false,
+      "actual": false,
+      "ok": true
+    },
+    {
+      "name": "profit",
+      "expected": 72000,
+      "actual": 72000.0,
+      "ok": true
+    },
+    {
+      "name": "quote total",
+      "expected": 176000,
+      "actual": 176000.0,
+      "ok": true
+    },
+    {
+      "name": "notes",
+      "expected": 74,
+      "actual": 74,
+      "ok": true
+    },
+    {
+      "name": "comment shapes are rectangles",
+      "expected": 74,
+      "actual": 74,
+      "ok": true
+    },
+    {
+      "name": "comment text autofit enabled",
+      "expected": 74,
+      "actual": 74,
+      "ok": true
+    },
+    {
+      "name": "comment text is not cut",
+      "expected": true,
+      "actual": 0,
+      "ok": true
+    },
+    {
+      "name": "INDIRECT",
+      "expected": 24,
+      "actual": 24,
+      "ok": true
+    },
+    {
+      "name": "CUBE absent",
+      "expected": 0,
+      "actual": 0,
+      "ok": true
+    },
+    {
+      "name": "sheet protection absent",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "freeze panes absent",
+      "expected": false,
+      "actual": false,
+      "ok": true
+    },
+    {
+      "name": "VBA absent",
+      "expected": false,
+      "actual": false,
+      "ok": true
+    },
+    {
+      "name": "external links absent",
+      "expected": null,
+      "actual": null,
+      "ok": true
+    },
+    {
+      "name": "queries absent",
+      "expected": 0,
+      "actual": 0,
+      "ok": true
+    },
+    {
+      "name": "file format",
+      "expected": 51,
+      "actual": 51.0,
+      "ok": true
+    },
+    {
+      "name": "cell protection absent",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "prohibited info absent",
+      "expected": [],
+      "actual": [],
+      "ok": true
+    },
+    {
+      "name": "creator metadata",
+      "expected": "ExcelBIBasic_DeepSeek_V4.1",
+      "actual": "ExcelBIBasic_DeepSeek_V4.1",
+      "ok": true
+    },
+    {
+      "name": "data model parts absent",
+      "expected": [],
+      "actual": [],
+      "ok": true
+    },
+    {
+      "name": "VBA parts absent",
+      "expected": [],
+      "actual": [],
+      "ok": true
+    },
+    {
+      "name": "macro extension absent",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "old chart names absent",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "new chart names present",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    {
+      "name": "zero test source rows",
+      "expected": true,
+      "actual": 3,
+      "ok": true
+    },
+    {
+      "name": "zero state value",
+      "expected": 0,
+      "actual": 0.0,
+      "ok": true
+    },
+    {
+      "name": "zero state display",
+      "expected": "0万円",
+      "actual": "0万円",
+      "ok": true
+    },
+    {
+      "name": "zero state is numeric",
+      "expected": true,
+      "actual": 0.0,
+      "ok": true
+    },
+    {
+      "name": "no data state",
+      "expected": "－",
+      "actual": "－",
+      "ok": true
+    },
+    {
+      "name": "existing data state",
+      "expected": 85,
+      "actual": 85.0,
+      "ok": true
+    },
+    {
+      "name": "out of range state",
+      "expected": true,
+      "actual": "",
+      "ok": true
+    },
+    {
+      "name": "timeline 2025 selection drives heatmap",
+      "expected": true,
+      "actual": {
+        "numeric_cells": [
+          96,
+          0
+        ],
+        "jan_value": 155.0
+      },
+      "ok": true
+    },
+    {
+      "name": "timeline 2026 selection drives heatmap",
+      "expected": true,
+      "actual": {
+        "numeric_cells": [
+          0,
+          96
+        ],
+        "jan_value": 85.0
+      },
+      "ok": true
+    },
+    {
+      "name": "timeline both years drive heatmap",
+      "expected": [
+        96,
+        96
+      ],
+      "actual": [
+        96,
+        96
+      ],
+      "ok": true
+    }
+  ]
+}
